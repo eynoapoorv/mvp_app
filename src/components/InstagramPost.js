@@ -101,6 +101,7 @@ const InstagramPosts = () => {
                         <Feed key={feed.id} feed={feed} />
                     ))}
                 </div>
+                {accessToken}
 
             </div>
 

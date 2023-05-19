@@ -9,7 +9,7 @@ import ConnectWithInstagram from './components/ConnectWithInstagram';
 import Winnerage from './components/Winnerage';
 import InstagramPosts from './components/InstagramPost'
 import Profile from './components/Profile'
-import Feed from './Auth/Feed';
+
 
 
 function App() {
