@@ -2,16 +2,18 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
-
+import { useNavigate } from 'react-router-dom'
 const ConnectWithInstagram = () => {
 
+    const navigate = useNavigate()
 
     const handleLogin = () => {
         const clientId = '255369483731464';
-        const redirectUri = 'https://eynoapoorv.github.io/reactlivewebsite/';
+        const redirectUri = 'https://eynosoftmvp.netlify.app/';
         const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
         window.location.href = authUrl;
+        navigate('/compitation')
     }
 
     return (

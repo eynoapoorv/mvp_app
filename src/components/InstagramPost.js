@@ -54,7 +54,7 @@ const InstagramPosts = () => {
         async function fetchInstagramPost() {
             try {
                 axios
-                    .get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=IGQVJVNFdMQ1FsSTk0VllPR2ZA3d2xMV01MZAXNjR1dWRlY5YTRfMFB6aGUyeVkzc25FM05zXzFzazhRRFV3M3M5OUFwT0pCSFFoQl82b3UwSWJEWjF6R1BXSWFOdzc4VXBpV2dadzNqcnZAZAalBWUVhyYQZDZD`)
+                    .get("https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=IGQVJVNFdMQ1FsSTk0VllPR2ZA3d2xMV01MZAXNjR1dWRlY5YTRfMFB6aGUyeVkzc25FM05zXzFzazhRRFV3M3M5OUFwT0pCSFFoQl82b3UwSWJEWjF6R1BXSWFOdzc4VXBpV2dadzNqcnZAZAalBWUVhyYQZDZD")
                     .then((resp) => {
                         setFeedsData(resp.data.data)
                     })
