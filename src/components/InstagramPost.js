@@ -34,9 +34,8 @@ const InstagramPosts = () => {
                 .then((response) => {
                     setAccessToken(response.access_token);
                     alert(response)
-                    console.log(response.data.access_token)
-
-
+                    console.log(response.data.access_token);
+                    console.log({ accessToken })
 
                 })
                 .catch((error) => {
@@ -47,16 +46,17 @@ const InstagramPosts = () => {
 
 
     useEffect(() => {
-        // this is to avoid memory leaks
+
 
         const abortController = new AbortController();
 
         async function fetchInstagramPost() {
             try {
                 axios
-                    .get("https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=IGQVJVNFdMQ1FsSTk0VllPR2ZA3d2xMV01MZAXNjR1dWRlY5YTRfMFB6aGUyeVkzc25FM05zXzFzazhRRFV3M3M5OUFwT0pCSFFoQl82b3UwSWJEWjF6R1BXSWFOdzc4VXBpV2dadzNqcnZAZAalBWUVhyYQZDZD")
+                    .get("https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=IGQVJYU3BrOFVNREw1enJnTGk1VVg2WlNuQk9ObGpVQk45VjVVT1VKOTVva3B4WlMwcTZAWUkM0RDZAlRFZABSERSUzdkTi1KOEc3YWZA6V3lFRzU4Y1pqeWZAGUldNV1VJdE1SRnBpb1J5QkU2ZA0pEcXRjOAZDZD")
                     .then((resp) => {
                         setFeedsData(resp.data.data)
+                        console.log(accessToken)
                     })
             } catch (err) {
                 console.log('error', err)
@@ -100,8 +100,9 @@ const InstagramPosts = () => {
                     {feeds.map((feed) => (
                         <Feed key={feed.id} feed={feed} />
                     ))}
+                    {accessToken}
                 </div>
-                {accessToken}
+
 
             </div>
 

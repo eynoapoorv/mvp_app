@@ -2,9 +2,21 @@ import React from 'react'
 import compitition_img1 from "../assets/images/compitition-img1.png"
 import compitition_img2 from "../assets/images/compitition-img2.png"
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 const Compititation = () => {
+
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        console.log(code)
+        localStorage.setItem('auth-code', code);
+        urlParams.delete('code');
+        console.log("Codee not found....")
+    })
+
     return (
         <>
             <div className="front-section compitition-page">
@@ -67,6 +79,9 @@ const Compititation = () => {
                         <Link to="/instagramFeed">SELECT VIDEO</Link>
                     </div>
                 </div>
+
+
+
             </div>
 
 
