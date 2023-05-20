@@ -1,6 +1,7 @@
 import React from 'react'
 import compitition_img1 from "../assets/images/compitition-img1.png"
 import compitition_img2 from "../assets/images/compitition-img2.png"
+import { Link } from 'react-router-dom'
 
 
 const Compititation = () => {
@@ -35,6 +36,7 @@ const Compititation = () => {
                         <div className="separator-brand">
                             V/S
                         </div>
+
                         <div className="brand2">
                             <div className="brand-name">
                                 <div className="brand-logo" />
@@ -58,6 +60,11 @@ const Compititation = () => {
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <br />
+                    <div className="battle-btn">
+                        <Link to="/instagramFeed">SELECT VIDEO</Link>
                     </div>
                 </div>
             </div>
