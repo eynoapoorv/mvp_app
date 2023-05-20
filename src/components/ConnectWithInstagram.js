@@ -1,20 +1,35 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 const ConnectWithInstagram = () => {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        console.log(code)
+        console.log("Codee not foundf....")
+
+        if (code) {
+            navigate("/compitation")
+        }
+
+
+    })
 
     const handleLogin = () => {
         const clientId = '255369483731464';
-        const redirectUri = 'https://eynosoftmvp.netlify.app/compitation';
+        const redirectUri = 'https://eynosoftmvp.netlify.app/';
         const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
         window.location.href = authUrl;
 
     }
+
 
     return (
         <>

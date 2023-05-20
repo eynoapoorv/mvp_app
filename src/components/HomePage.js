@@ -18,7 +18,7 @@ const HomePage = () => {
                     <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h3>
                 </div>
                 <div className="battle-btn">
-                    <Link to="/compitation">Battle</Link>
+                    <Link to="/connectWitInstagram">Battle</Link>
                 </div>
 
             </div>
