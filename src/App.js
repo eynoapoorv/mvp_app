@@ -16,11 +16,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route exact path='/home' element={<HomePage />} />
         <Route path='/compitation' element={<Compititation />} />
-        <Route path='/connectWithInstagram' element={<ConnectWithInstagram />} />
+        <Route path='/' element={<ConnectWithInstagram />} />
         <Route path='/winnerage' element={<Winnerage />} />
-        <Route path='/instagramPost' element={<InstagramPosts />} />
+        <Route path='/instagramFeed' element={<InstagramPosts />} />
         <Route path='/profile' element={<Profile />} />
 
 

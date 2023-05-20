@@ -13,7 +13,8 @@ const ConnectWithInstagram = () => {
         const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
         window.location.href = authUrl;
-        navigate('/compitation')
+
+
     }
 
     return (
