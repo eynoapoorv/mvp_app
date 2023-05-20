@@ -9,7 +9,7 @@ const ConnectWithInstagram = () => {
 
     const handleLogin = () => {
         const clientId = '255369483731464';
-        const redirectUri = 'https://eynosoftmvp.netlify.app/';
+        const redirectUri = 'https://eynosoftmvp.netlify.app/compitation';
         const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
         window.location.href = authUrl;
