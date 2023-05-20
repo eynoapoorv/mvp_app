@@ -14,7 +14,6 @@ const ConnectWithInstagram = () => {
 
         window.location.href = authUrl;
 
-
     }
 
     return (
