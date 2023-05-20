@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 const ConnectWithInstagram = () => {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleLogin = () => {
         const clientId = '255369483731464';
