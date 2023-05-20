@@ -17,7 +17,7 @@ function App() {
     <>
       <Routes>
         <Route exact path='/' element={<HomePage />} />
-        <Route path='/compitation' element={<Compititation />} />
+        <Route path='/compitation' component={<Compititation />} />
         <Route path='/connectWitInstagram' element={<ConnectWithInstagram />} />
         <Route path='/winnerage' element={<Winnerage />} />
         <Route path='/instagramFeed' element={<InstagramPosts />} />
