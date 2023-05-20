@@ -92,7 +92,7 @@ const InstagramPosts = () => {
             <div className="front-image">
                 <div className="home-content">
                     <h3>Select Video</h3>
-
+                    <button onClick={() => handleCodeExchange()}>CLICK TO POST DATA</button>
                 </div>
 
 
