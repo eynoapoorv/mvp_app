@@ -12,7 +12,7 @@ const HomePage = () => {
                     <img src={logo_png} alt="" />
                 </div>
                 <div className="game-rule">
-                    <Link to="/compitation">Game Rule</Link>
+                    <Link to="">Game Rule</Link>
                 </div>
                 <div className="home-content">
                     <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h3>
