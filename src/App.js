@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch,  Route } from 'react-router-dom';
 
 import './App.css';
 import HomePage from './components/HomePage';
@@ -10,21 +10,19 @@ import Winnerage from './components/Winnerage';
 import InstagramPosts from './components/InstagramPost'
 import Profile from './components/Profile'
 
-
-
 function App() {
   return (
     <>
-      <Routes>
-        <Route exact path='/' element={<HomePage />} />
-        <Route path='/compitation' component={<Compititation />} />
-        <Route path='/connectWitInstagram' element={<ConnectWithInstagram />} />
-        <Route path='/winnerage' element={<Winnerage />} />
-        <Route path='/instagramFeed' element={<InstagramPosts />} />
-        <Route path='/profile' element={<Profile />} />
-
-
-      </Routes>
+      <Router>
+				<Switch>
+          <PublicRoute path="/" restricted={false} component={HomePage} exact />
+          <PublicRoute path="/compitation" restricted={false} component={Compititation} exact />
+          <PublicRoute path="/connectWitInstagram" restricted={false} component={ConnectWithInstagram} exact />
+          <PublicRoute path="/winnerage" restricted={false} component={Winnerage} exact />
+          <PublicRoute path="/instagramFeed" restricted={false} component={InstagramPosts} exact />
+          <PublicRoute path="/profile" restricted={false} component={Profile} exact />
+        </Switch>
+			</Router>
 
     </>
   );
