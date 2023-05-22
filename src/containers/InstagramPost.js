@@ -17,11 +17,7 @@ const InstagramPosts = () => {
     const [feeds, setFeedsData] = useState([]);
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
-        var token = localStorage.getItem('access_token');
-        if(token == '') {
-            handleCodeExchange();
-        } 
-        
+        handleCodeExchange();
     }, [])
     
     /*****************************************************************************/
@@ -61,6 +57,12 @@ const InstagramPosts = () => {
                 .catch((error) => {
                     console.error('Token exchange failed:', error);
                 });
+        } else {
+            var token = localStorage.getItem('access_token');
+            if(token) {
+                setAccessToken(token);
+            }
+            
         }
     };
     /*****************************************************************************/
