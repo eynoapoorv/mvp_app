@@ -7,16 +7,63 @@ import { useEffect } from 'react'
 
 const Compititation = () => {
 
-
+    const [posts, setPosts] = useState([]);
     useEffect(() => {
+        handleCodeExchange();
+    })
+
+    const handleCodeExchange =  () => {
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
         console.log(code)
-        localStorage.setItem('auth-code', code);
-        urlParams.delete('code');
-        console.log("Codee not found....")
-    })
+        if (code) {
+            localStorage.setItem('auth-code', code);
+            urlParams.delete('code');
+        } else {
+            console.log("Codee not foundf....")
+        }
+        const auth_code = localStorage.getItem('auth-code');
 
+        if (auth_code) {
+            const redirectURI = 'https://eynosoftmvp.netlify.app/compitation';
+            const clientID = '255369483731464';
+            const clientSecret = '2ffd5a91893817112f410cb755ef32a2';
+
+            const tokenExchangeUrl = 'https://api.instagram.com/oauth/access_token';
+
+            const requestBody = new URLSearchParams();
+            requestBody.append('client_id', clientID);
+            requestBody.append('client_secret', clientSecret);
+            requestBody.append('grant_type', 'authorization_code');
+            requestBody.append('redirect_uri', redirectURI);
+            requestBody.append('code', auth_code);
+
+             axios.post(tokenExchangeUrl, requestBody)
+                .then((response) => {
+                    console.log(response)
+                    localStorage.setItem('access_token', response.data.access_token);  
+                    const accessToken =  localStorage.getItem('access_token');
+                    console.log(accessToken)   
+                     fetchInstagramPost(accessToken);
+                })
+                .catch((error) => {
+                    console.error('Token exchange failed:', error);
+                });
+        }
+    };
+
+    async function fetchInstagramPost(accessToken) {
+        try {
+          // const accessToken =  localStorage.getItem('access_token');
+            await axios.get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
+                .then((resp) => {
+                    console.warn("response data :", resp)
+                    setPosts(resp.data.data);
+                })
+        } catch (err) {
+            console.log('error', err)
+        }
+    }
     return (
         <>
             <div className="front-section compitition-page">
