@@ -6,9 +6,9 @@ import './App.css';
 import HomePage from './components/HomePage';
 import Compititation from './containers/Compititation';
 import ConnectWithInstagram from './containers/ConnectWithInstagram';
-import Winnerage from './components/Winnerage';
-import InstagramPosts from './components/InstagramPost'
-import Profile from './components/Profile'
+import Winnerage from './containers/Winnerage';
+import InstagramPosts from './containers/InstagramPost'
+import Profile from './containers/Profile'
 
 function App() {
   return (

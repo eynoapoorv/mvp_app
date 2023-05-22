@@ -9,7 +9,6 @@
 import React from 'react'
 import compitition_img1 from "../assets/images/compitition-img1.png"
 import compitition_img2 from "../assets/images/compitition-img2.png"
-import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -17,7 +16,7 @@ import axios from 'axios'
 const Compititation = () => {
 
     //intialization of instances and varialbles
-    const [posts, setPosts] = useState([]);
+    //const [posts, setPosts] = useState([]);
     useEffect(() => {
         handleCodeExchange();
         
@@ -63,7 +62,7 @@ const Compititation = () => {
                     localStorage.setItem('access_token', response.data.access_token);  
                     const accessToken =  localStorage.getItem('access_token');
                     console.log(accessToken)   
-                    fetchInstagramPost(accessToken)
+                    //fetchInstagramPost(accessToken)
                 })
                 .catch((error) => {
                     console.error('Token exchange failed:', error);
@@ -72,28 +71,7 @@ const Compititation = () => {
     };
     /*****************************************************************************/
     /*****************************************************************************/
-
-    /**
-     * Function to fetch post from instagram for particualr user
-     * 
-     * @param String
-     * @returns JSON||null
-     */
-    async function fetchInstagramPost(accessToken) {
-        try {
-          // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(process.env.REACT_APP_GRAPH_URL+`/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
-                .then((resp) => {
-                    console.warn("response data :", resp)
-                    setPosts(resp.data.data);
-                })
-        } catch (err) {
-            console.log('error', err)
-        }
-    }
-    /*****************************************************************************/
-    /*****************************************************************************/
-
+     
     return (
         <>
             <div className="front-section compitition-page">
@@ -154,7 +132,7 @@ const Compititation = () => {
                     <br />
                     <div className="battle-btn">
                         {/*<Link to="/instagramFeed">SELECT VIDEO</Link>*/}
-                        {console.log(posts)}
+                        
                     </div>
                 </div>
 
