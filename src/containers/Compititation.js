@@ -44,11 +44,11 @@ const Compititation = () => {
         const auth_code = localStorage.getItem('auth-code');
 
         if (auth_code) {
-            const redirectURI = process.env.DEV_REDIRECT_URL;
-            const clientID = process.env.CLIENT_ID;
-            const clientSecret =  process.env.CLIENT_SECRET;
+            const redirectURI = process.env.REACT_APP_DEV_REDIRECT_URL;
+            const clientID = process.env.REACT_APP_CLIENT_ID;
+            const clientSecret =  process.env.REACT_APP_CLIENT_SECRET;
 
-            const tokenExchangeUrl = process.env.INSTAGRAM_API_URL+'/oauth/access_token';
+            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL+'/oauth/access_token';
 
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
@@ -82,7 +82,7 @@ const Compititation = () => {
     async function fetchInstagramPost(accessToken) {
         try {
           // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(process.env.GRAPH_URL+`/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
+            await axios.get(process.env.REACT_APP_GRAPH_URL+`/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
                 .then((resp) => {
                     console.warn("response data :", resp)
                     setPosts(resp.data.data);

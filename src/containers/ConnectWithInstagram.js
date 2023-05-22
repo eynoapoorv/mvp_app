@@ -17,7 +17,9 @@ const ConnectWithInstagram = () => {
     //intialization of instances and varialbles
     // const navigate = useNavigate()
     useEffect(() => {
-    
+        console.log(process.env.REACT_APP_CLIENT_ID);
+        console.log(process.env.REACT_APP_DEV_REDIRECT_URL);
+        console.log(process.env.REACT_APP_INSTAGRAM_API_URL);
     })
     /*****************************************************************************/
     /*****************************************************************************/
@@ -28,9 +30,9 @@ const ConnectWithInstagram = () => {
      * @returns null
      */
     const handleLogin = () => {
-        const clientId = process.env.CLIENT_ID;
-        const redirectUri = process.env.DEV_REDIRECT_URL;
-        const authUrl = process.env.INSTAGRAM_API_URL+`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
+        const clientId = process.env.REACT_APP_CLIENT_ID;
+        const redirectUri = process.env.REACT_APP_DEV_REDIRECT_URL;
+        const authUrl = process.env.REACT_APP_INSTAGRAM_API_URL+`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
         window.location.href = authUrl;
 
