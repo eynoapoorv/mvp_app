@@ -48,7 +48,7 @@ const InstagramPosts = () => {
 
             axios.post(tokenExchangeUrl, requestBody)
                 .then((response) => {
-                    setAccessToken(response.access_token);
+                    setAccessToken(response.data.access_token);
                     console.log(response.data.access_token);
                     localStorage.setItem('access_token', response.data.access_token);  
                     const accessToken =  localStorage.getItem('access_token');
@@ -81,6 +81,10 @@ const InstagramPosts = () => {
     }
     /*****************************************************************************/
     /*****************************************************************************/
+    const handleChange = () => {
+
+    }
+
     return (
         <div className="front-section home-page">
             <div className="front-image">
@@ -91,7 +95,10 @@ const InstagramPosts = () => {
 
                 <div className="container">
                     {feeds.map((feed) => (
-                        <Feed key={feed.id} feed={feed} />
+                        <>
+                            <Feed key={feed.id} feed={feed} />
+                            <input type='radio' value={feed.id} onChange={handleChange}/>
+                        </>
                     ))}
                 </div>
             </div>
