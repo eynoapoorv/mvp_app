@@ -1,17 +1,35 @@
+/**
+ * File Name: Competition.js
+ * 
+ * Description: Manage the data for competition for the login user
+ * 
+ * Author: Eynosoft Team
+ */
+
 import React from 'react'
 import compitition_img1 from "../assets/images/compitition-img1.png"
 import compitition_img2 from "../assets/images/compitition-img2.png"
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 
 const Compititation = () => {
 
+    //intialization of instances and varialbles
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         handleCodeExchange();
     })
+    /*****************************************************************************/
+    /*****************************************************************************/
 
+    /**
+     * Function to manage the code from instagram
+     * 
+     * @param null
+     * @returns String||null
+     */
     const handleCodeExchange =  () => {
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
@@ -51,7 +69,15 @@ const Compititation = () => {
                 });
         }
     };
+    /*****************************************************************************/
+    /*****************************************************************************/
 
+    /**
+     * Function to fetch post from instagram for particualr user
+     * 
+     * @param String
+     * @returns JSON||null
+     */
     async function fetchInstagramPost(accessToken) {
         try {
           // const accessToken =  localStorage.getItem('access_token');
@@ -64,6 +90,9 @@ const Compititation = () => {
             console.log('error', err)
         }
     }
+    /*****************************************************************************/
+    /*****************************************************************************/
+
     return (
         <>
             <div className="front-section compitition-page">
