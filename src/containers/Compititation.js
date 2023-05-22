@@ -82,7 +82,7 @@ const Compititation = () => {
     async function fetchInstagramPost(accessToken) {
         try {
           // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(GRAPH_URL+`/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
+            await axios.get(process.env.GRAPH_URL+`/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
                 .then((resp) => {
                     console.warn("response data :", resp)
                     setPosts(resp.data.data);
