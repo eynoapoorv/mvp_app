@@ -17,7 +17,11 @@ const InstagramPosts = () => {
     const [feeds, setFeedsData] = useState([]);
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
-        handleCodeExchange();
+        var token = localStorage.getItem('access_token');
+        if(token == '') {
+            handleCodeExchange();
+        } 
+        
     }, [])
     
     /*****************************************************************************/
@@ -94,11 +98,11 @@ const InstagramPosts = () => {
                 </div>
 
                 <div className="container">
-                    {feeds.map((feed) => (
-                        <>
+                    {feeds.map((feed,i) => (
+                        <div key={i} className="col-md-4">
                             <Feed key={feed.id} feed={feed} />
-                            <input type='radio' value={feed.id} onChange={handleChange}/>
-                        </>
+                            <p><input type='radio' name={'feed-'+i} value={feed.id} onChange={handleChange}/></p>
+                        </div>
                     ))}
                 </div>
             </div>
