@@ -20,6 +20,7 @@ const Compititation = () => {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         handleCodeExchange();
+        
     })
     /*****************************************************************************/
     /*****************************************************************************/
@@ -43,11 +44,11 @@ const Compititation = () => {
         const auth_code = localStorage.getItem('auth-code');
 
         if (auth_code) {
-            const redirectURI = 'https://eynosoftmvp.netlify.app/compitation';
-            const clientID = '255369483731464';
-            const clientSecret = '2ffd5a91893817112f410cb755ef32a2';
+            const redirectURI = process.env.DEV_REDIRECT_URL;
+            const clientID = process.env.CLIENT_ID;
+            const clientSecret =  process.env.CLIENT_SECRET;
 
-            const tokenExchangeUrl = 'https://api.instagram.com/oauth/access_token';
+            const tokenExchangeUrl = process.env.INSTAGRAM_API_URL+'/oauth/access_token';
 
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
@@ -62,7 +63,7 @@ const Compititation = () => {
                     localStorage.setItem('access_token', response.data.access_token);  
                     const accessToken =  localStorage.getItem('access_token');
                     console.log(accessToken)   
-                     fetchInstagramPost(accessToken);
+                    
                 })
                 .catch((error) => {
                     console.error('Token exchange failed:', error);
@@ -81,7 +82,7 @@ const Compititation = () => {
     async function fetchInstagramPost(accessToken) {
         try {
           // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
+            await axios.get(GRAPH_URL+`/me/media?fields=id,media_type,media_url&access_token=${accessToken}`)
                 .then((resp) => {
                     console.warn("response data :", resp)
                     setPosts(resp.data.data);
@@ -152,7 +153,8 @@ const Compititation = () => {
                     </div>
                     <br />
                     <div className="battle-btn">
-                        <Link to="/instagramFeed">SELECT VIDEO</Link>
+                        {/*<Link to="/instagramFeed">SELECT VIDEO</Link>*/}
+                        {console.log(posts)}
                     </div>
                 </div>
 

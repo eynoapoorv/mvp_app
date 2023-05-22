@@ -4,13 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import HomePage from './components/HomePage';
-import Compititation from './components/Compititation';
-import ConnectWithInstagram from './components/ConnectWithInstagram';
+import Compititation from './containers/Compititation';
+import ConnectWithInstagram from './containers/ConnectWithInstagram';
 import Winnerage from './components/Winnerage';
 import InstagramPosts from './components/InstagramPost'
 import Profile from './components/Profile'
-
-
 
 function App() {
   return (

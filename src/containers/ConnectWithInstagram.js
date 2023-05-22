@@ -1,3 +1,11 @@
+/**
+ * Fiel Name: ConnectWith .js
+ * 
+ * Description: Manage connection with instagram and manages the data accordingly
+ * 
+ * Author: Eynosoft Team
+ */
+
 import React from 'react'
 // import { useEffect } from 'react'
 
@@ -6,31 +14,29 @@ import logo from '../assets/images/logo.png'
 // import { useNavigate } from 'react-router-dom'
 
 const ConnectWithInstagram = () => {
-
+    //intialization of instances and varialbles
     // const navigate = useNavigate()
-    // useEffect(() => {
-    //     const urlParams = new URLSearchParams(window.location.search);
-    //     const code = urlParams.get('code');
-    //     console.log(code)
-    //     console.log("Codee not foundf....")
-
-    //     if (code) {
-    //         navigate("/compitation")
-    //     }
-
-
-    // })
-
+    useEffect(() => {
+    
+    })
+    /*****************************************************************************/
+    /*****************************************************************************/
+    /**
+     * Function to handle login request
+     * 
+     * @param null
+     * @returns null
+     */
     const handleLogin = () => {
-        const clientId = '255369483731464';
-        const redirectUri = 'https://eynosoftmvp.netlify.app/compitation';
-        const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
+        const clientId = process.env.CLIENT_ID;
+        const redirectUri = process.env.DEV_REDIRECT_URL;
+        const authUrl = process.env.INSTAGRAM_API_URL+`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
         window.location.href = authUrl;
 
-
     }
-
+    /*****************************************************************************/
+    /*****************************************************************************/
 
     return (
         <>
