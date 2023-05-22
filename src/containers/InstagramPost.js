@@ -17,38 +17,7 @@ const InstagramPosts = () => {
     const [feeds, setFeedsData] = useState([]);
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
-        const abortController = new AbortController();
-        async function fetchInstagramPost() {
-            try {
-                axios
-                    .get("https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=IGQVJYU3BrOFVNREw1enJnTGk1VVg2WlNuQk9ObGpVQk45VjVVT1VKOTVva3B4WlMwcTZAWUkM0RDZAlRFZABSERSUzdkTi1KOEc3YWZA6V3lFRzU4Y1pqeWZAGUldNV1VJdE1SRnBpb1J5QkU2ZA0pEcXRjOAZDZD")
-                    .then((resp) => {
-                        setFeedsData(resp.data.data)
-                        console.log(accessToken)
-                    })
-            } catch (err) {
-                console.log('error', err)
-            }
-
-
-            // try {
-            //     axios
-            //         .get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption&limit=${props.limit}&access_token=${tokenProp.current}`)
-            //         .then((resp) => {
-            //             setFeedsData(resp.data.data)
-            //         })
-            // } catch (err) {
-            //     console.log('error', err)
-            // }
-        }
-
-        // manually call the fecth function 
-        fetchInstagramPost();
-
-        return () => {
-            // cancel pending fetch request on component unmount
-            abortController.abort();
-        };
+        handleCodeExchange();
     }, [])
     
     /*****************************************************************************/
