@@ -63,7 +63,7 @@ const Compititation = () => {
                     localStorage.setItem('access_token', response.data.access_token);  
                     const accessToken =  localStorage.getItem('access_token');
                     console.log(accessToken)   
-                    
+                    fetchInstagramPost(accessToken)
                 })
                 .catch((error) => {
                     console.error('Token exchange failed:', error);
