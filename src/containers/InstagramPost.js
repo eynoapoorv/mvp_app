@@ -90,7 +90,14 @@ const InstagramPosts = () => {
     const handleChange = () => {
 
     }
+    /*****************************************************************************/
+    /*****************************************************************************/
+    const showFeeds = () => {
 
+    }
+    /*****************************************************************************/
+    /*****************************************************************************/
+    
     return (
         <div className="front-section home-page">
             <div className="front-image">
@@ -100,12 +107,36 @@ const InstagramPosts = () => {
                 </div>
 
                 <div className="container">
-                    {feeds.map((feed,i) => (
+                    {feeds.map((feed,i) => {
+                        return(
+                            (i%3===0 ?
+                                <div className ="row mt-4">
+                                  <div key ={i} className="col-md-4">
+                                    <Feed key={feed.id} feed={feed} />
+                                    <p><input type='radio' name='feeds' value={feed.id} onChange={handleChange}/></p>
+                                  </div>
+                              :
+                                  <div key ={i} className="col-md-4">
+                                    <Feed key={feed.id} feed={feed} />
+                                    <p><input type='radio' name='feeds' value={feed.id} onChange={handleChange}/></p>
+                                  </div>
+                              )
+                              (i%3===1 ?
+                                </div>
+                                :null)
+                        )
+                        
+                    })}
+                    {/*{feeds.map((row, i) => (
+                    <div key={i} className="row mt-4">
+                        {row.map((col, i) => (
                         <div key={i} className="col-md-4">
-                            <Feed key={feed.id} feed={feed} />
-                            <p><input type='radio' name={'feed-'+i} value={feed.id} onChange={handleChange}/></p>
+                            <Feed feeds={col}/>
+                            <p><input type='radio' name='feeds' value={feed.id} onChange={handleChange}/></p>
                         </div>
-                    ))}
+                        ))}
+                    </div>
+                    ))}*/}
                 </div>
             </div>
         </div>
