@@ -8,7 +8,7 @@ const Feed = (props) => {
         case "VIDEO":
             post = (
                 <video
-                    width='100%'
+                    width='25%'
                     height='auto'
                     src={media_url}
                     type="video/mp4"
