@@ -84,7 +84,7 @@ const InstagramPosts = () => {
             // const accessToken =  localStorage.getItem('access_token');
             await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,like_count,comments_count,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
-                    alert(resp)
+                    //alert(resp)
                     console.warn("response data :", resp)
                     setFeedsData(resp.data.data);
                 })
