@@ -83,6 +83,7 @@ const InstagramPosts = () => {
             // const accessToken =  localStorage.getItem('access_token');
             await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,like_count,comments_count,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
+                    alert(resp)
                     console.warn("response data :", resp)
                     setFeedsData(resp.data.data);
                 })
@@ -120,17 +121,17 @@ const InstagramPosts = () => {
                     <ul>
                         {feeds.map((feed, i) => {
                             return (
-                                <div>
-                                    <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
-                                        <Feed key={feed.id} feed={feed} />
 
-                                        <p><input type='radio' id={i} name='feeds' value={feed.id} onChange={handleChange} /></p>
-                                    </li>
-                                </div>
+                                <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
+                                    <Feed key={feed.id} feed={feed} />
+                                    <p>Likes : {feeds.like_count}</p>
+                                    <p><input type='radio' id={i} name='feeds' value={feed.id} onChange={handleChange} /></p>
+                                </li>
+
                             );
                         })}
                     </ul>
-                    <p>Likes : {feeds.like_count}</p>
+
                 </div>
             </div>
         </div>
