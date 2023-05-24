@@ -106,7 +106,7 @@ const InstagramPosts = () => {
      * @param(null)
      * @returns(JSON|null)
      */
-    joinCompetition = async () => {
+    const joinCompetition = async () => {
         if (joinVideoUrl) {
             var video = '<video width="100%" height="auto" src="'+{joinVideoUrl}+'" type="video/mp4" controls playsinline> </video>'
             var message = username+' has send invite request for this competion .'+video+' Accept invitaiton for competition'+<button>Invite</button>+'!';
