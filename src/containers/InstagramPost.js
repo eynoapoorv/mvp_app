@@ -7,13 +7,16 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Feed from '../Auth/Feed';
 
 const InstagramPosts = () => {
     //intialization of instances and varialbles
     // const [posts, setPosts] = useState([]);
+    const navigate = useNavigate();
     const [accessToken, setAccessToken] = useState('');
+    const [joinVideoUrl, setJoinVideoUrl] = useState('');
     const [feeds, setFeedsData] = useState([]);
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
@@ -87,23 +90,28 @@ const InstagramPosts = () => {
     }
     /*****************************************************************************/
     /*****************************************************************************/
-    const handleChange = () => {
-
+    const handleChange = (event) => {
+        var videoUrl = event.target.value;
+        setJoinVideoUrl(videoUrl);
+    }   
+    /*****************************************************************************/
+    /*****************************************************************************/
+    const joinCompetition = () => {
+        if(joinVideoUrl) {
+            navigate("/compitation");
+        } else {
+            alert('Please choose video')
+        }
+        
     }
     /*****************************************************************************/
     /*****************************************************************************/
-    const showFeeds = () => {
-
-    }
-    /*****************************************************************************/
-    /*****************************************************************************/
-    
     return (
         <div className="front-section home-page">
             <div className="front-image">
                 <div className="home-content">
                     <h3>Select Video</h3>
-                    <button onClick={() => handleCodeExchange()}>CLICK TO POST DATA</button>
+                    <button onClick={() => joinCompetition()}>JOIN COMPETITION</button>
                 </div>
 
                 <div className="container">
