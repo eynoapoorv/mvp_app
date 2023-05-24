@@ -22,7 +22,7 @@ const InstagramPosts = () => {
     useEffect(() => {
         handleCodeExchange();
     }, [])
-    
+
     /*****************************************************************************/
     /*****************************************************************************/
     /**
@@ -40,7 +40,7 @@ const InstagramPosts = () => {
             const clientID = process.env.REACT_APP_CLIENT_ID;
             const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
-            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL+'/oauth/access_token';
+            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL + '/oauth/access_token';
 
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
@@ -53,8 +53,8 @@ const InstagramPosts = () => {
                 .then((response) => {
                     setAccessToken(response.data.access_token);
                     console.log(response.data.access_token);
-                    localStorage.setItem('access_token', response.data.access_token);  
-                    const accessToken =  localStorage.getItem('access_token');
+                    localStorage.setItem('access_token', response.data.access_token);
+                    const accessToken = localStorage.getItem('access_token');
                     fetchInstagramPost(accessToken)
                 })
                 .catch((error) => {
@@ -62,10 +62,10 @@ const InstagramPosts = () => {
                 });
         } else {
             var token = localStorage.getItem('access_token');
-            if(token) {
+            if (token) {
                 setAccessToken(token);
             }
-            
+
         }
     };
     /*****************************************************************************/
@@ -76,10 +76,12 @@ const InstagramPosts = () => {
      * @param String
      * @returns JSON||null
      */
+
+    // https://graph.instagram.com/${mediaId}?fields=id,media_type,permalink,thumbnail_url,like_count,comments_count,media_url&access_token=${accessToken}
     async function fetchInstagramPost(accessToken) {
         try {
-          // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(process.env.REACT_APP_GRAPH_URL+`/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
+            // const accessToken =  localStorage.getItem('access_token');
+            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,like_count,comments_count,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
                     console.warn("response data :", resp)
                     setFeedsData(resp.data.data);
@@ -93,16 +95,16 @@ const InstagramPosts = () => {
     const handleChange = (event) => {
         var videoUrl = event.target.value;
         setJoinVideoUrl(videoUrl);
-    }   
+    }
     /*****************************************************************************/
     /*****************************************************************************/
     const joinCompetition = () => {
-        if(joinVideoUrl) {
+        if (joinVideoUrl) {
             navigate("/compitation");
         } else {
             alert('Please choose video')
         }
-        
+
     }
     /*****************************************************************************/
     /*****************************************************************************/
@@ -116,16 +118,19 @@ const InstagramPosts = () => {
 
                 <div className="container">
                     <ul>
-                        {feeds.map((feed,i) => {
-                            return(
-                                <li style={{display:"inline-block",width:"200px",margin:"0px 0px 0px 20px"}}>
-                                    <Feed key={feed.id} feed={feed} />
-                                    <p><input type='radio' id={i} name='feeds' value={feed.id} onChange={handleChange}/></p>
-                                </li>
+                        {feeds.map((feed, i) => {
+                            return (
+                                <div>
+                                    <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
+                                        <Feed key={feed.id} feed={feed} />
+
+                                        <p><input type='radio' id={i} name='feeds' value={feed.id} onChange={handleChange} /></p>
+                                    </li>
+                                </div>
                             );
-                            
                         })}
                     </ul>
+                    <p>Likes : {feeds.like_count}</p>
                 </div>
             </div>
         </div>

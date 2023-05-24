@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Feed = (props) => {
-    const { id, caption, media_type, media_url, } = props.feed
+    const { id, caption, media_type, media_url } = props.feed
     let post;
 
     switch (media_type) {
