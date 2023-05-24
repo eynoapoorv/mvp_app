@@ -109,9 +109,9 @@ const InstagramPosts = () => {
     const joinCompetition = async () => {
         if (joinVideoUrl) {
             var video = '<video width="100%" height="auto" src="'+{joinVideoUrl}+'" type="video/mp4" controls playsinline> </video>'
-            var message = username+' has send invite request for this competion .'+video+' Accept invitaiton for competition'+<button>Invite</button>+'!';
+            var message = 'Test has send invite request for this competion .'+video+' Accept invitaiton for competition'+<button>Invite</button>+'!';
             const notificationdata = [{
-                'userId': username,
+                'userId': 'Test',
                 'message': message,
                 
             }];
@@ -127,7 +127,7 @@ const InstagramPosts = () => {
                             //navigate("/compitation");
                             //console.log(response.data.data)
                         } else {
-                            this.setState({ orderStatus: '' })
+                            //this.setState({ orderStatus: '' })
                         } 
                       }).catch(error => {
                         console.log(error);
@@ -153,6 +153,7 @@ const InstagramPosts = () => {
                             console.log(feed.username);
                             //setUsername(feed.username);
                             return (
+                                
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
                                     <p>Likes : {feed.like_count}</p>
