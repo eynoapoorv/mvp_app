@@ -121,16 +121,16 @@ const InstagramPosts = () => {
                         {feeds.map((feed, i) => {
                             return (
                                 <div>
-
                                     <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                         <Feed key={feed.id} feed={feed} />
-                                        <p>Likes : {feed.like_count}</p>
+
                                         <p><input type='radio' id={i} name='feeds' value={feed.id} onChange={handleChange} /></p>
                                     </li>
                                 </div>
                             );
                         })}
                     </ul>
+                    <p>Likes : {feeds.like_count}</p>
                 </div>
             </div>
         </div>
