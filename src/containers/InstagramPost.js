@@ -150,7 +150,8 @@ const InstagramPosts = () => {
                 <div className="container">
                     <ul>
                         {feeds.map((feed, i) => {
-                            setUsername(feed.username);
+                            console.log(feed.username);
+                            //setUsername(feed.username);
                             return (
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
