@@ -129,8 +129,6 @@ const InstagramPosts = () => {
                                     </li>
                                 </div>
                             );
-
-
                         })}
                     </ul>
                 </div>

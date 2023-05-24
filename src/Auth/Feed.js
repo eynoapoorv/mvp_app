@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Feed = (props) => {
-    const { id, caption, media_type, media_url, username } = props.feed
+    const { id, caption, media_type, media_url, like_count } = props.feed
     let post;
 
     switch (media_type) {
@@ -26,6 +26,17 @@ const Feed = (props) => {
                     alt={caption}
                 />
             );
+            break;
+        case "LIKES":
+            post = (
+                <p
+                    width='100%'
+                    height='auto'
+                    src={like_count}
+                    type="text"
+                    controls playsinline>
+                </p>
+            )
             break;
         default:
 
