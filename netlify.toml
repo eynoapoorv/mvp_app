@@ -1,9 +1,4 @@
 [[redirects]]
-  from = "/backend"
-  to = "https://eynosoftmvp.netlify.app/backend"
+  from = "/*"
+  to = "/"
   status = 200
-  headers = {X-From = "Netlify"}
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
