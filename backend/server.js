@@ -14,7 +14,8 @@ const app = express();
 const errorHandler = require('./app/helpers/error-handler');
 
 var corsOptions = {
-    origin: config.dev_url
+    origin: '*',
+    credentials: true
 }
 app.get("/", (req, res) => {
   res.json({message: "Welcome"})      

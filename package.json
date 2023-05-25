@@ -1,7 +1,7 @@
 {
   "name": "mvp-application",
   "home": "https://eynosoftmvp.netlify.app/",
-  "proxy": "https://eynosoftmvp.netlify.app/backend",
+  "proxy": "https://eynosoftmvp.netlify.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
