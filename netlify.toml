@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/*"
-  to = "/"
+  from = "/backend"
+  to = "https://eynosoftmvp.netlify.app/backend"
   status = 200
   headers = {X-From = "Netlify"}
 [[headers]]
