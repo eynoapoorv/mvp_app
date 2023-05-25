@@ -82,7 +82,7 @@ const InstagramPosts = () => {
     async function fetchInstagramPost(accessToken) {
         try {
             // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,like_count,comments_count,media_url,username,timestamp&access_token=${accessToken}`)
+            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
@@ -108,30 +108,30 @@ const InstagramPosts = () => {
      */
     const joinCompetition = async () => {
         if (joinVideoUrl) {
-            var video = '<video width="100%" height="auto" src="'+{joinVideoUrl}+'" type="video/mp4" controls playsinline> </video>'
-            var message = 'Test has send invite request for this competion .'+video+' Accept invitaiton for competition'+<button>Invite</button>+'!';
+            var video = '<video width="100%" height="auto" src="' + { joinVideoUrl } + '" type="video/mp4" controls playsinline> </video>'
+            var message = 'Test has send invite request for this competion .' + video + ' Accept invitaiton for competition' + <button>Invite</button> + '!';
             const notificationdata = [{
                 'userId': 'Test',
                 'message': message,
-                
+
             }];
-            let res = await axios.post('user/join',notificationdata, {
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json;charset=UTF-8',
-                            'Authorization': `Bearer ${accessToken}`
-                        }
-                      }).then((response) => {
-                        if(typeof response.data.data != 'undefined') {
-                            //this.setState({ orderStatus: response.data.data })
-                            //navigate("/compitation");
-                            //console.log(response.data.data)
-                        } else {
-                            //this.setState({ orderStatus: '' })
-                        } 
-                      }).catch(error => {
-                        console.log(error);
-                      });
+            let res = await axios.post('user/join', notificationdata, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            }).then((response) => {
+                if (typeof response.data.data != 'undefined') {
+                    //this.setState({ orderStatus: response.data.data })
+                    //navigate("/compitation");
+                    //console.log(response.data.data)
+                } else {
+                    //this.setState({ orderStatus: '' })
+                }
+            }).catch(error => {
+                console.log(error);
+            });
         } else {
             alert('Please choose video')
         }
@@ -153,7 +153,7 @@ const InstagramPosts = () => {
                             console.log(feed.username);
                             //setUsername(feed.username);
                             return (
-                                
+
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
                                     <p>Likes : {feed.like_count}</p>
