@@ -17,6 +17,7 @@ const InstagramPosts = () => {
     const navigate = useNavigate();
     const [accessToken, setAccessToken] = useState('');
     const [joinVideoUrl, setJoinVideoUrl] = useState('');
+    const [username, setUsername] = useState('');
     const [feeds, setFeedsData] = useState([]);
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
@@ -83,7 +84,7 @@ const InstagramPosts = () => {
             // const accessToken =  localStorage.getItem('access_token');
             await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,like_count,comments_count,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
-                    alert(resp)
+                    //alert(resp)
                     console.warn("response data :", resp)
                     setFeedsData(resp.data.data);
                 })
@@ -99,9 +100,38 @@ const InstagramPosts = () => {
     }
     /*****************************************************************************/
     /*****************************************************************************/
-    const joinCompetition = () => {
+    /**
+     * Function send request to join competition
+     * 
+     * @param(null)
+     * @returns(JSON|null)
+     */
+    const joinCompetition = async () => {
         if (joinVideoUrl) {
-            navigate("/compitation");
+            var video = '<video width="100%" height="auto" src="'+{joinVideoUrl}+'" type="video/mp4" controls playsinline> </video>'
+            var message = 'Test has send invite request for this competion .'+video+' Accept invitaiton for competition'+<button>Invite</button>+'!';
+            const notificationdata = [{
+                'userId': 'Test',
+                'message': message,
+                
+            }];
+            let res = await axios.post('user/join',notificationdata, {
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json;charset=UTF-8',
+                            'Authorization': `Bearer ${accessToken}`
+                        }
+                      }).then((response) => {
+                        if(typeof response.data.data != 'undefined') {
+                            //this.setState({ orderStatus: response.data.data })
+                            //navigate("/compitation");
+                            //console.log(response.data.data)
+                        } else {
+                            //this.setState({ orderStatus: '' })
+                        } 
+                      }).catch(error => {
+                        console.log(error);
+                      });
         } else {
             alert('Please choose video')
         }
@@ -120,7 +150,10 @@ const InstagramPosts = () => {
                 <div className="container">
                     <ul>
                         {feeds.map((feed, i) => {
+                            console.log(feed.username);
+                            //setUsername(feed.username);
                             return (
+                                
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
                                     <p>Likes : {feed.like_count}</p>
