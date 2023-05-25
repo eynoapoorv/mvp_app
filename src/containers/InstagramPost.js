@@ -54,7 +54,7 @@ const InstagramPosts = () => {
                 .then((response) => {
                     setAccessToken(response.data.access_token);
                     console.log(response.data.access_token);
-                    console.log(response.data.user_id)
+                    console.log(response)
                     localStorage.setItem('access_token', response.data.access_token);
 
                     const accessToken = localStorage.getItem('access_token');
