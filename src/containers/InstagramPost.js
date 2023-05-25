@@ -54,7 +54,9 @@ const InstagramPosts = () => {
                 .then((response) => {
                     setAccessToken(response.data.access_token);
                     console.log(response.data.access_token);
+                    console.log(response)
                     localStorage.setItem('access_token', response.data.access_token);
+
                     const accessToken = localStorage.getItem('access_token');
                     fetchInstagramPost(accessToken)
                 })
@@ -82,7 +84,7 @@ const InstagramPosts = () => {
     async function fetchInstagramPost(accessToken) {
         try {
             // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
+            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,like_count,comments_count,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
