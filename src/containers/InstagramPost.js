@@ -76,7 +76,7 @@ const InstagramPosts = () => {
      * @param String
      * @returns JSON||null
      */
-
+    // https://graph.facebook.com/v3.2/17841405309211844?fields=business_discovery.username(bluebottle){followers_count,media_count,media{comments_count,like_count}}&access_token={access-token}
     // https://graph.instagram.com/${mediaId}?fields=id,media_type,permalink,thumbnail_url,like_count,comments_count,media_url&access_token=${accessToken}
     async function fetchInstagramPost(accessToken) {
         try {
