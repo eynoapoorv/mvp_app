@@ -71,11 +71,26 @@ const Compititation = () => {
     };
     /*****************************************************************************/
     /*****************************************************************************/
-     
+    // display 24 hours counter code 
+    var dateTimeAfterOneDays;
+
+    if(localStorage.getItem("seconds")){
+      let updateTime = localStorage.getItem("seconds")
+      updateTime = Number(updateTime);
+     // updateTime = updateTime + new Date().getTime()
+      dateTimeAfterOneDays = updateTime;
+    }else{
+      const THREE_DAYS_IN_MS =  24 * 60 * 60 * 1000;
+      const NOW_IN_MS = new Date().getTime();
+      dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+    }   
+     /*****************************************************************************/
+    /*****************************************************************************/
     return (
         <>
             <div className="front-section compitition-page">
                 <div className="front-image">
+                <CountdownTimer targetDate={dateTimeAfterOneDays} />
                     <div className="compitition-content container">
                         <div className="brand1">
                             <div className="brand-name">
