@@ -83,8 +83,10 @@ const InstagramPosts = () => {
     // https://graph.instagram.com/${mediaId}?fields=id,media_type,permalink,thumbnail_url,like_count,comments_count,media_url&access_token=${accessToken}
     async function fetchInstagramPost(accessToken) {
         try {
+            https://graph.facebook.com/v3.2/9604541066237514?fields=eynobrajesh{followers_count,media_count,media{comments_count,like_count}}&access_token={access-token}
             // const accessToken =  localStorage.getItem('access_token');
-            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
+            //await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
+            await axios.get(`https://graph.facebook.com/v3.2/9604541066237514?fields=eynobrajesh{followers_count,media_count,media{comments_count,like_count}}&access_token=${accessToken}`)
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
