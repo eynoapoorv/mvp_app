@@ -41,14 +41,17 @@ const InstagramPosts = () => {
             const clientID = process.env.REACT_APP_CLIENT_ID;
             const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
-            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL + '/oauth/access_token';
+            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL + '/oauth/authorize';
 
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
             requestBody.append('client_secret', clientSecret);
-            requestBody.append('grant_type', 'authorization_code');
+            //requestBody.append('grant_type', 'authorization_code');
+            requestBody.append('scope', 'user_profile,user_media');
             requestBody.append('redirect_uri', redirectURI);
-            requestBody.append('code', code);
+            //requestBody.append('code', code);
+            requestBody.append('response_type', code);
+            requestBody.append('state', 1);
 
             axios.post(tokenExchangeUrl, requestBody)
                 .then((response) => {
