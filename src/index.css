@@ -1,0 +1,461 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Abel', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.front-section .front-image {
+  background-image: url(./assets/images/img1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 550px;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.front-section {
+  position: relative;
+}
+
+
+/* .front-section .front-image img{
+  position: absolute;
+} */
+
+.front-image .front-logo {
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+}
+
+.front-image .front-logo.logo {
+  margin: auto;
+  width: 100px;
+  padding: 10px;
+}
+
+.front-image .home-content {
+  text-align: center;
+  color: #fff;
+}
+
+.front-image .front-logo.logo img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.front-section .front-content {
+  color: #fff;
+  text-align: center;
+  padding-top: 50px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+
+.home-page .home-content h3 {
+  font-size: 32px;
+}
+
+.home-page .battle-btn {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.home-page .battle-btn a {
+  color: #fff;
+  padding: 10px 40px;
+  background-image: radial-gradient(circle, #192dec, #4c29ec, #6923ec, #801cec, #9412eb);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+.home-page,
+.front-section {
+  position: relative;
+}
+
+.game-rule {
+  position: absolute;
+  right: 50px;
+  top: 60px;
+}
+
+.start-game {
+  position: absolute;
+  left: 50px;
+  top: 60px;
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.compitition-page .compitition-content .brand1,
+.compitition-page .compitition-content .brand2 {
+  width: 50%;
+  height: 450px;
+  background-color: #2f2089b8;
+  padding: 30px 80px;
+  margin-right: 50px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.compitition-page .compitition-content .brand2 {
+  margin-left: 50px !important;
+}
+
+.compitition-page .brand-video-wrapper .brand-img {
+  /* width: 240px; */
+  height: 280px;
+}
+
+.compitition-page .brand-video-wrapper .brand-img img,
+.winner-wrapper .team-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.compitition-page .compitition-content h2.brand-winning-percent {
+  font-size: 60px;
+  margin: 0;
+}
+
+.brand-video-wrapper .brand-percent {
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.positive-mention {
+  position: absolute;
+  right: 15px;
+  bottom: 30%;
+  color: #fff;
+}
+
+.negative-mention {
+  position: absolute;
+  top: 36%;
+  left: 40px;
+  color: #fff;
+}
+
+.separator-brand {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  /* border: 8px solid #2F2089; */
+  box-shadow: 0px 5px 10px 0px rgba(0, 255, 255, 0.7);
+}
+
+
+/* .winnerpage .winning-left,.winnerpage .winning-right{
+  width: 50%;
+} */
+
+.winnerpage .front-image {
+  background-image: url(./assets/images/img1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.winnerpage .winning-center {
+  color: #fff;
+  text-align: center;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.winnerpage .winning-center h3 {
+  font-size: 35px;
+}
+
+.winnerpage .show-btn {
+  margin-top: 40px;
+}
+
+.winnerpage .winning-show-btn,
+.profile-page .profile-btn-next a {
+  color: #fff;
+  padding: 10px 40px;
+  background-image: radial-gradient(circle, #192dec, #4c29ec, #6923ec, #801cec, #9412eb);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+.winner-wrapper .winning-score-card {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+.winner-wrapper .winning-score-content,
+.winner-wrapper .winning-score-card .team,
+.winning-pionts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  color: #fff;
+}
+
+.winner-wrapper .winning-card {
+  background-color: #2f2089b8;
+  height: 400px;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.winner-wrapper .winning-card .team-1,
+.winner-wrapper .winning-card .team-2,
+.profile-page .profile-data .profile-inner-data-wrapper .profile-data-row {
+  background-color: #4c29ec6e;
+  border: 2px solid #4c29ec6e;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.winner-wrapper .team-logo {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #4c29ec6e;
+}
+
+.winning-card-points .winning-card-points-wrapper {
+  padding-top: 50px;
+}
+
+.winning-card-points .winning-points {
+  background-color: #4c29ec6e;
+  border: 2px solid #4c29ec6e;
+  padding: 15px 20px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.winning-card-points .winning-cont {
+  padding-top: 20px;
+}
+
+.winner-wrapper .winning-card-social-share {
+  background-color: #2f2089b8;
+  padding: 12px;
+  margin-top: 30px;
+  border-radius: 10px;
+  color: #FFF;
+}
+
+.winner-wrapper .winning-card-social-share .social-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.winning-card-social-share .social-icons-pannel i {
+  background-color: #FFF;
+  padding: 3px;
+  color: #6923ec;
+  border-radius: 2px;
+  margin: 0 8px;
+}
+
+.profile-page .profile-text {
+  background-color: #2f2089b8;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-page .profile-content {
+  width: 750px;
+  margin: 0 auto;
+}
+
+.profile-page .profile-content .profile-image {
+  width: 180px;
+  height: 270px;
+}
+
+.profile-page .profile-content .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.profile-page .profile-content .profile-heading h1 {
+  text-align: center;
+  font-size: 60px;
+  color: #FFF;
+}
+
+.profile-data-row {
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  gap: 20px;
+  /* flex-direction: row; */
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.profile-page .profile-content .profile-data {
+  width: 350px;
+}
+
+.profile-page .profile-btn-next {
+  margin-top: 30px;
+  float: right;
+}
+
+.view_counter,
+.win_counter {
+  padding: 10px 0px;
+}
+
+.view_counter ul,
+.view_counter ul li,
+.win_counter ul,
+.win_counter ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.view_counter ul,
+.win_counter ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+  letter-spacing: 0.05em;
+}
+
+.view_counter ul li span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.win_counter ul li {
+  text-align: center;
+  background-color: #4c29ec6e;
+  border: 2px solid #4c29ec6e;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.win_counter ul li span {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* InstaFeed css    */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 15px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 100ms ease-out;
+}
+
+.container img:hover {
+  transform: scale(1.04);
+}
+
+
+/* counter css start */
+.expired-notice {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #ebebeb;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+}
+
+.expired-notice > span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.expired-notice > p {
+  font-size: 1.5rem;
+}
+
+.show-counter {
+  padding: 0.5rem;
+}
+
+.show-counter .countdown-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding: 0.5rem;
+  /* border: 1px solid #ebebeb; */
+  border-radius: 0.25rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.show-counter .countdown {
+  line-height: 1.25rem;
+  padding: 0 0.75rem 0 0.75rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-counter .countdown.danger {
+  color: #ff0000;
+}
+
+.show-counter .countdown > p {
+  margin: 0;
+  color: #ebebeb;
+}
+
+.show-counter .countdown > span {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #ebebeb;
+}
+.show-counter > a > p{
+  color: #ebebeb;
+}
