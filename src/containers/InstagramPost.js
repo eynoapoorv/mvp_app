@@ -41,17 +41,14 @@ const InstagramPosts = () => {
             const clientID = process.env.REACT_APP_CLIENT_ID;
             const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
-            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL + '/oauth/authorize';
+            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL + '/oauth/access_token';
 
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
             requestBody.append('client_secret', clientSecret);
-            //requestBody.append('grant_type', 'authorization_code');
-            requestBody.append('scope', 'user_profile,user_media');
+            requestBody.append('grant_type', 'authorization_code');
             requestBody.append('redirect_uri', redirectURI);
-            //requestBody.append('code', code);
-            requestBody.append('response_type', code);
-            requestBody.append('state', 1);
+            requestBody.append('code', code);
 
             axios.post(tokenExchangeUrl, requestBody)
                 .then((response) => {
@@ -89,7 +86,7 @@ const InstagramPosts = () => {
             https://graph.facebook.com/v3.2/9604541066237514?fields=eynobrajesh{followers_count,media_count,media{comments_count,like_count}}&access_token={access-token}
             // const accessToken =  localStorage.getItem('access_token');
             //await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
-            await axios.get(`https://graph.facebook.com/v3.2/9604541066237514?fields=eynobrajesh{followers_count,media_count,media{comments_count,like_count}}&access_token=${accessToken}`)
+            await axios.get(`https://graph.facebook.com/v3.2/9604541066237514?fields=business_discovery.username(eynobrajesh){followers_count,media_count,media{comments_count,like_count}}&access_token=${accessToken}`)
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
