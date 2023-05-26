@@ -9,6 +9,7 @@ import ConnectWithInstagram from './containers/ConnectWithInstagram';
 import Winnerage from './containers/Winnerage';
 import InstagramPosts from './containers/InstagramPost'
 import Profile from './containers/Profile'
+import LikesCommentsDisplay from './containers/LikesComment';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/winnerage' element={<Winnerage />} />
         <Route path='/instagramFeed' element={<InstagramPosts />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/likeComment' element={<LikesCommentsDisplay />} />
 
 
       </Routes>
