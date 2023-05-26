@@ -84,9 +84,7 @@ const InstagramPosts = () => {
     async function fetchInstagramPost(accessToken) {
         try {
             // const accessToken =  localStorage.getItem('access_token');
-             
-            //await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
-            await axios.get(process.env.REACT_APP_GRAPH_URL + `/v17.0/me/accounts&access_token=${accessToken}`)
+            await axios.get(process.env.REACT_APP_GRAPH_URL + `/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=${accessToken}`)
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
