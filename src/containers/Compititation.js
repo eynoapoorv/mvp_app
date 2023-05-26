@@ -11,6 +11,7 @@ import compitition_img1 from "../assets/images/compitition-img1.png"
 import compitition_img2 from "../assets/images/compitition-img2.png"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import CountdownTimer from './CountdownTimer';
 
 
 const Compititation = () => {
