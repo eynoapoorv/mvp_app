@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-
+import axios from 'axios';
+import config from './config.json';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+axios.defaults.baseURL = config.apiURI;
 root.render(
 
   <BrowserRouter>
