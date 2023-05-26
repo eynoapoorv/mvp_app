@@ -46,7 +46,8 @@ const InstagramPosts = () => {
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
             requestBody.append('client_secret', clientSecret);
-            requestBody.append('grant_type', 'authorization_code');
+            //requestBody.append('grant_type', 'authorization_code');
+            requestBody.append('grant_type', 'client_credentials');
             requestBody.append('redirect_uri', redirectURI);
             requestBody.append('code', code);
 
