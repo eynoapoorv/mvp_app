@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Feed from '../Auth/Feed';
+import Header from '../components/Header';
 
 const InstagramPosts = () => {
     //intialization of instances and varialbles
@@ -134,6 +135,7 @@ const InstagramPosts = () => {
             }).catch(error => {
                 console.log(error);
             });
+
         } else {
             alert('Please choose video')
         }
@@ -144,6 +146,7 @@ const InstagramPosts = () => {
     return (
         <div className="front-section home-page">
             <div className="front-image">
+                <Header />
                 <div className="home-content">
                     <h3>Select Video</h3>
                     <button onClick={() => joinCompetition()}>JOIN COMPETITION</button>
