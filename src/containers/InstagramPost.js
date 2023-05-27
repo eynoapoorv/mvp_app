@@ -20,6 +20,7 @@ const InstagramPosts = () => {
     const [joinVideoUrl, setJoinVideoUrl] = useState('');
     const [username, setUsername] = useState('');
     const [feeds, setFeedsData] = useState([]);
+    const [profileData, setProfileData] = useState('');
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
         handleCodeExchange();
@@ -28,18 +29,41 @@ const InstagramPosts = () => {
 
     /*****************************************************************************/
     /*****************************************************************************/
-    const getUserProfieData = () => {
+    const getUserProfieData = (username) => {
 
+        axios.get(REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username)
+            .then((response) => {
+                console.log(response);
+                //localStorage.setItem('access_token', response.data.access_token);
+
+                //const accessToken = localStorage.getItem('access_token');
+                //fetchInstagramPost(accessToken)
+            })
+            .catch((error) => {
+                console.error('Token exchange failed:', error);
+            });
     }
+    /**
+     * Function to set the username
+     * 
+     * @param Object
+     * @returns String|null
+     */
     const getUsername = (feedData) => {
         if(feedData) {
             for(var i=0; i<=feedData.length;i++) {
+                setUsername(feedData[i].username);
                 console.log(feedData[i].username);
                 break;
-                //setUsername(feedData[i])
+                
             }
+            getUserProfieData(username);
         }
+
     }
+    /*****************************************************************************/
+    /*****************************************************************************/
+
     /**
      * Function to get the likes and comment count
      * 
