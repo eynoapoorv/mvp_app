@@ -24,24 +24,33 @@ const InstagramPosts = () => {
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
         handleCodeExchange();
-        
+
     }, [])
 
     /*****************************************************************************/
     /*****************************************************************************/
     const getUserProfileData = (username) => {
 
-        axios.get(process.env.REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username)
+        axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username, {
+            withCredentials: true,
+            headers: {
+                'Sec-Fetch-Dest': 'object',
+                'Sec-Fetch-Mode': "navigate",
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1'
+
+            }
+        })
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
 
                 //const accessToken = localStorage.getItem('access_token');
                 //fetchInstagramPost(accessToken)
-                
+
             })
             .catch((error) => {
-                console.error('Token exchange failed:', error);
+                console.error('Token exchangeee failed:', error);
             });
     }
     /**
@@ -51,20 +60,20 @@ const InstagramPosts = () => {
      * @returns String|null
      */
     const getUsername = (feedData) => {
-        if(feedData) {
+        if (feedData) {
             var uname;
-            for(var i=0; i<=feedData.length;i++) {
+            for (var i = 0; i <= feedData.length; i++) {
                 uname = feedData[i].username;
                 console.log(feedData[i].username);
                 break;
             }
             setUsername(uname);
-            localStorage.setItem('username',uname);
+            localStorage.setItem('username', uname);
             console.log('herre')
             setTimeout(() => {
                 console.log('inside')
                 getUserProfileData(uname);
-              }, 2000);
+            }, 2000);
         }
 
     }
@@ -80,8 +89,8 @@ const InstagramPosts = () => {
     const getUserInstadata = (feedData) => {
         //const post = { userName: userName }
         //console.log(feedData)
-        if(feedData) {
-            for(var i=0; i<=feedData.length;i++) {
+        if (feedData) {
+            for (var i = 0; i <= feedData.length; i++) {
 
             }
         }
@@ -162,11 +171,11 @@ const InstagramPosts = () => {
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
-                    
+
                     setFeedsData(resp.data.data);
                     getUsername(resp.data.data);
                     getUserInstadata(resp.data.data);
-                    
+
                 })
         } catch (err) {
             console.log('error', err)
