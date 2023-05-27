@@ -54,14 +54,17 @@ const InstagramPosts = () => {
      */
     const getUsername = (feedData) => {
         if(feedData) {
+            var uname;
             for(var i=0; i<=feedData.length;i++) {
+                uname = feedData[i].username;
                 setUsername(feedData[i].username);
                 localStorage.setItem('username',feedData[i].username);
-                getUserProfieData(feedData[i].username);
+                
                 console.log(feedData[i].username);
                 break;
             }
             
+            getUserProfieData(uname);
         }
 
     }
