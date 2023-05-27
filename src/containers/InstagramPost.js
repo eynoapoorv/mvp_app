@@ -30,10 +30,8 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const getUserProfileData = (username) => {
-        console.log('test');
-        console.log(REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username);
 
-        axios.get(REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username)
+        axios.get(process.env.REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
