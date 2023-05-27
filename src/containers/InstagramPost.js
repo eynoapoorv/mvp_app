@@ -57,7 +57,7 @@ const InstagramPosts = () => {
                 break;
                 
             }
-            getUserProfieData(username);
+            
         }
 
     }
@@ -158,6 +158,7 @@ const InstagramPosts = () => {
                     
                     setFeedsData(resp.data.data);
                     getUsername(resp.data.data);
+                    getUserProfieData(username);
                     getUserInstadata(resp.data.data);
                 })
         } catch (err) {
