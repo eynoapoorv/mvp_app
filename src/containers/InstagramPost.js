@@ -34,8 +34,9 @@ const InstagramPosts = () => {
         await axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username,{
             headers: {
                 'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': "cors",
-                'Sec-Fetch-Site': 'same-origin'
+                'Sec-Fetch-Mode': "no-cors",
+                'Sec-Fetch-Site': 'same-origin',
+                'Sec-Fetch-User': '?1'
                 }
             })
             .then((response) => {
