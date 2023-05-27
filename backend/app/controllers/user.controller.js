@@ -62,3 +62,10 @@ function getUserData(req, res, next) {
 }
 /************************************************************************************/
 /************************************************************************************/
+
+function getpData(req, res, next) {
+    console.log(req)
+    userService.getpData(req)
+    .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
+    .catch(err => next(res.json({ status: false, message: err })));    
+}
