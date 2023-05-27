@@ -35,8 +35,8 @@ const InstagramPosts = () => {
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': "no-cors",
-                'Sec-Fetch-Site': 'same-origin',
+                'Sec-Fetch-Mode': "navigate",
+                'Sec-Fetch-Site': 'none',
                 'Sec-Fetch-User': '?1'
                 }
             })
