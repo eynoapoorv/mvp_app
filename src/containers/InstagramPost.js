@@ -32,7 +32,7 @@ const InstagramPosts = () => {
     const getUserProfileData = async (username) => {
         var token = localStorage.getItem('access_token'); 
         const response = await fetch(
-            process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
+            process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
         )
         const { data } = await response.json()
         console.log(data)
