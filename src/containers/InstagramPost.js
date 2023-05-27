@@ -32,14 +32,7 @@ const InstagramPosts = () => {
     const getUserProfileData = (username) => {
 
         axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username, {
-            withCredentials: true,
-            headers: {
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': "navigate",
-                'Sec-Fetch-Site': 'none',
-                'Sec-Fetch-User': '?1'
-
-            }
+            withCredentials: false,
         })
             .then((response) => {
                 console.log(response);
