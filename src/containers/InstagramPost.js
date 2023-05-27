@@ -38,6 +38,7 @@ const InstagramPosts = () => {
 
                 //const accessToken = localStorage.getItem('access_token');
                 //fetchInstagramPost(accessToken)
+                
             })
             .catch((error) => {
                 console.error('Token exchange failed:', error);
@@ -53,9 +54,10 @@ const InstagramPosts = () => {
         if(feedData) {
             for(var i=0; i<=feedData.length;i++) {
                 setUsername(feedData[i].username);
+                localStorage.setItem('username',feedData[i].username);
+                getUserProfieData(feedData[i].username);
                 console.log(feedData[i].username);
                 break;
-                
             }
             
         }
@@ -158,8 +160,8 @@ const InstagramPosts = () => {
                     
                     setFeedsData(resp.data.data);
                     getUsername(resp.data.data);
-                    getUserProfieData(username);
                     getUserInstadata(resp.data.data);
+                    
                 })
         } catch (err) {
             console.log('error', err)
