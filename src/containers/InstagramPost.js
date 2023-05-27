@@ -29,11 +29,19 @@ const InstagramPosts = () => {
 
     /*****************************************************************************/
     /*****************************************************************************/
-    const getUserProfileData = (username) => {
+    const getUserProfileData = async (username) => {
 
-        axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username, {
-            withCredentials: false,
-        })
+        try {
+            const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username)
+            const { data } = await response.json()
+            console.log(data)
+
+
+        } catch (error) {
+
+        }
+
+        axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
