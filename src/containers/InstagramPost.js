@@ -56,6 +56,7 @@ const InstagramPosts = () => {
             for(var i=0; i<=feedData.length;i++) {
                 uname = feedData[i].username;
                 console.log(feedData[i].username);
+                break;
             }
             setUsername(uname);
             localStorage.setItem('username',uname);
