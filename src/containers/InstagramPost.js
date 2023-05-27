@@ -62,9 +62,11 @@ const InstagramPosts = () => {
                 console.log(feedData[i].username);
                 break;
             }
+            console.log('herre')
             setTimeout(() => {
+                console.log('inside')
                 getUserProfileData(uname);
-              }, "1000");
+              }, 2000);
               
             
         }
