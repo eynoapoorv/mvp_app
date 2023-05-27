@@ -43,7 +43,7 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
            
-        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch`,requestBody)
+        await axios.post(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch`,requestBody)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
