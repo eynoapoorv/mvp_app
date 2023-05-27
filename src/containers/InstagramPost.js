@@ -43,19 +43,8 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
            
-        await axios.post('user/pdata',requestBody)
-            .then((response) => {
-                console.log(response);
-                //localStorage.setItem('access_token', response.data.access_token);
-
-                //const accessToken = localStorage.getItem('access_token');
-                //fetchInstagramPost(accessToken)
-
-            })
-            .catch((error) => {
-                console.error('Token exchangeee failed:', error);
-            });
-        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+        
+        await axios.post(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
@@ -74,7 +63,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });*/}
+            });
     }
     /**
      * Function to set the username
