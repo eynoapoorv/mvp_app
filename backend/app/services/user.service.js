@@ -7,6 +7,7 @@
 
 const config = require('../config/index');
 const msg = require('../helpers/messages.json');
+const fetch = require('node-fetch');
 
 module.exports = {
     joinCompetion,

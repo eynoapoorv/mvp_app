@@ -31,13 +31,30 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
         var token = localStorage.getItem('access_token'); 
-        const response = await fetch(
+        {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
             
         )
+        
+        
         const { data } = await response.json()
-        console.log(data)
+        console.log(data)*/}
+        const requestBody = new URLSearchParams();
+        requestBody.append('query', username);
+           
+        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch`,requestBody)
+            .then((response) => {
+                console.log(response);
+                //localStorage.setItem('access_token', response.data.access_token);
+
+                //const accessToken = localStorage.getItem('access_token');
+                //fetchInstagramPost(accessToken)
+
+            })
+            .catch((error) => {
+                console.error('Token exchangeee failed:', error);
+            });
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
