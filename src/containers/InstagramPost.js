@@ -29,9 +29,9 @@ const InstagramPosts = () => {
 
     /*****************************************************************************/
     /*****************************************************************************/
-    const getUserProfieData = (username) => {
+    const getUserProfileData = (username) => {
 
-        axios.get(REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username)
+        axios.get(process.env.REACT_APP_INSTAGRAM_URL+'/web/search/topsearch/?query='+username)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
@@ -52,14 +52,19 @@ const InstagramPosts = () => {
      */
     const getUsername = (feedData) => {
         if(feedData) {
+            var uname;
             for(var i=0; i<=feedData.length;i++) {
-                setUsername(feedData[i].username);
-                localStorage.setItem('username',feedData[i].username);
-                getUserProfieData(feedData[i].username);
+                uname = feedData[i].username;
                 console.log(feedData[i].username);
                 break;
             }
-            
+            setUsername(uname);
+            localStorage.setItem('username',uname);
+            console.log('herre')
+            setTimeout(() => {
+                console.log('inside')
+                getUserProfileData(uname);
+              }, 2000);
         }
 
     }
