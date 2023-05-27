@@ -36,7 +36,7 @@ const InstagramPosts = () => {
             headers: {
                 'Sec-Fetch-Dest': 'empty',
                 'Sec-Fetch-Mode': "navigate",
-                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-Site': 'same-origin',
                 'Sec-Fetch-User': '?1'
                 }
             })
