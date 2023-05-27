@@ -44,16 +44,7 @@ const InstagramPosts = () => {
         requestBody.append('query', username);
            
         
-        await axios.post(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
-            withCredentials: true,
-            headers: {
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': "navigate",
-                'Sec-Fetch-Site': 'same-origin',
-                'Sec-Fetch-User': '?1',
-                'Access-Control-Allow-Origin': '*'
-                }
-            })
+        await axios.post(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
