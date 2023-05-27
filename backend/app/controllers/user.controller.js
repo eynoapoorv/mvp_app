@@ -13,7 +13,7 @@ const userService = require('../services/user.service');
 router.post('/join', joinCompetition);
 router.get('/userprofiledata', getUserProfileData);
 router.post('/userdata', getUserData);
-router.get('/pdata', getpData);
+router.post('/pdata', getpData);
 
 module.exports = router;
 /**

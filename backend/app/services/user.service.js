@@ -12,7 +12,8 @@ const fetch = require('node-fetch');
 module.exports = {
     joinCompetion,
     getUserData,
-    getUserProfileData
+    getUserProfileData,
+    getpData
 }
 /************************************************************************************/
 /************************************************************************************/
