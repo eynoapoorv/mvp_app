@@ -28,6 +28,18 @@ const InstagramPosts = () => {
 
     /*****************************************************************************/
     /*****************************************************************************/
+    const getUserProfieData = () => {
+
+    }
+    const getUsername = (feedData) => {
+        if(feedData) {
+            for(var i=0; i<=feedData.length;i++) {
+                console.log(feedData[i].username);
+                break;
+                //setUsername(feedData[i])
+            }
+        }
+    }
     /**
      * Function to get the likes and comment count
      * 
@@ -36,7 +48,12 @@ const InstagramPosts = () => {
      */
     const getUserInstadata = (feedData) => {
         //const post = { userName: userName }
-        console.log(feedData)
+        //console.log(feedData)
+        if(feedData) {
+            for(var i=0; i<=feedData.length;i++) {
+
+            }
+        }
         {/*
         axios.post('/user/userdata', requestBody)
             .then((response) => {
@@ -116,6 +133,7 @@ const InstagramPosts = () => {
                     console.warn("response data :", resp)
                     
                     setFeedsData(resp.data.data);
+                    getUsername(resp.data.data);
                     getUserInstadata(resp.data.data);
                 })
         } catch (err) {
