@@ -49,7 +49,7 @@ const InstagramPosts = () => {
             headers: {
                 'Sec-Fetch-Dest': 'document',
                 'Sec-Fetch-Mode': "navigate",
-                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-Site': 'same-origin',
                 'Sec-Fetch-User': '?1',
                 'Access-Control-Allow-Origin': '*'
                 }
