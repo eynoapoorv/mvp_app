@@ -31,8 +31,12 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
         var token = localStorage.getItem('access_token'); 
-        
-        await axios.post(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+        const response = await fetch(
+            process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
+        )
+        const { data } = await response.json()
+        console.log(data)
+        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
@@ -51,7 +55,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });
+            });*/}
     }
     /**
      * Function to set the username
