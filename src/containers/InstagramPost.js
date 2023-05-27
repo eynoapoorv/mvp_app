@@ -23,10 +23,35 @@ const InstagramPosts = () => {
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
         handleCodeExchange();
+        
     }, [])
 
     /*****************************************************************************/
     /*****************************************************************************/
+    /**
+     * Function to get the likes and comment count
+     * 
+     * @param Object
+     * @returns JSON|null
+     */
+    const getUserInstadata = (feedData) => {
+        //const post = { userName: userName }
+        console.log(feedData)
+        {/*
+        axios.post('/user/userdata', requestBody)
+            .then((response) => {
+                    setAccessToken(response.data.access_token);
+                    console.log(response.data.access_token);
+                    console.log(response)
+                    localStorage.setItem('access_token', response.data.access_token);
+
+                    const accessToken = localStorage.getItem('access_token');
+                    fetchInstagramPost(accessToken)
+            })
+            .catch((error) => {
+                console.error('Token exchange failed:', error);
+            }); */}
+    }
     /**
      * Function to manage the code from instagram
      * 
@@ -89,7 +114,9 @@ const InstagramPosts = () => {
                 .then((resp) => {
                     //alert(resp)
                     console.warn("response data :", resp)
+                    
                     setFeedsData(resp.data.data);
+                    getUserInstadata(resp.data.data);
                 })
         } catch (err) {
             console.log('error', err)

@@ -11,6 +11,8 @@ const msg = require('../helpers/messages.json');
 const userService = require('../services/user.service');
 
 router.post('/join', joinCompetition);
+router.get('/userprofiledata', getUserProfileData);
+router.post('/userdata', getUserData);
 
 module.exports = router;
 /**
@@ -29,5 +31,33 @@ function joinCompetition(req, res, next) {
 
 /************************************************************************************/
 /************************************************************************************/
-
-
+/**
+ * Function to get the user profile data
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns JSON|null
+ */
+function getUserProfileData(req, res, next) {
+    userService.getUserData(req)
+        .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
+        .catch(err => next(res.json({ status: false, message: err })));      
+} 
+/************************************************************************************/
+/************************************************************************************/
+/**
+ * Function to get the user data
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns JSON|null
+ */
+function getUserData(req, res, next) {
+        userService.getUserData(req)
+        .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
+        .catch(err => next(res.json({ status: false, message: err })));    
+}
+/************************************************************************************/
+/************************************************************************************/
