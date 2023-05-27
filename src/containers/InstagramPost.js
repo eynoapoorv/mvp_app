@@ -31,17 +31,17 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
 
+
+        //
         try {
-            const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username)
-            const { data } = await response.json()
-            console.log(data)
-
-
+            const response = await axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username);
+            console.log(response.data);
         } catch (error) {
-
+            console.log(error);
         }
+        //
 
-        axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username)
+        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + '/web/search/topsearch/?query=' + username)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
