@@ -44,10 +44,10 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
            
-        const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`);
-
-        const jsonData = await response.json();
-        console.log(jsonData);
+        
+        fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
+  .then(response => response.text())
+  .then(data => console.log(data));
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
             .then((response) => {
                 console.log(response);
