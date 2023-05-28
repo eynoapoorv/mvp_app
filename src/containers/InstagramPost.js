@@ -44,8 +44,11 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
            
-        
-        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
+        const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`);
+
+        const jsonData = await response.json();
+        console.log(jsonData);
+        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
@@ -56,7 +59,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });
+            });*/}
     }
     /**
      * Function to set the username
