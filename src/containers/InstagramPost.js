@@ -23,14 +23,15 @@ const InstagramPosts = () => {
     const [profileData, setProfileData] = useState('');
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
-        handleCodeExchange();
+        getUserProfileData();
+        //handleCodeExchange();
 
     }, [])
 
     /*****************************************************************************/
     /*****************************************************************************/
-    const getUserProfileData = async (username) => {
-        var token = localStorage.getItem('access_token'); 
+    const getUserProfileData = async () => {
+        //var token = localStorage.getItem('access_token'); 
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
@@ -44,7 +45,7 @@ const InstagramPosts = () => {
         requestBody.append('query', username);
            
         
-        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?access_token=`+token+`&query=` + username)
+        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
@@ -76,7 +77,7 @@ const InstagramPosts = () => {
             console.log('herre')
             setTimeout(() => {
                 console.log('inside')
-                getUserProfileData(uname);
+                //getUserProfileData(uname);
             }, 2000);
         }
 
