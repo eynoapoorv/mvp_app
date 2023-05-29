@@ -46,7 +46,13 @@ const InstagramPosts = () => {
 
         const response = await fetch(
             process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}&access_token=${token}`,{
-                mode: 'no-cors',
+                withCredentials: true,
+                headers: {
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': "navigate",
+                    'Sec-Fetch-Site': 'cross-site',
+                    'Sec-Fetch-User': '?1',
+                }
             }
         )
 
