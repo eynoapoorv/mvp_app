@@ -62,8 +62,7 @@ const InstagramPosts = () => {
             headers: {
                 Authorization: `Bearer: ${token}`,
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+            }
             })
             console.log(response.json())
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
