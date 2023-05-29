@@ -59,7 +59,7 @@ const InstagramPosts = () => {
         const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
             method: 'GET',
             mode: 'no-cors',
-            withCredentials: true, 
+            withCredentials: true,
             headers: {
                 Authorization: `Bearer: ${token}`,
                 'Content-Type': 'application/json',
@@ -240,6 +240,7 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const handleChange = (event) => {
         var file = event.target.value;
+        console.log("file", file)
         const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
         console.log("selected video are save in local storage", videoUrl);
