@@ -239,9 +239,9 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const handleChange = (event) => {
-        var file = event.target.value;
-        console.log("file", file)
-        const videoUrl = URL.createObjectURL(file);
+        var videoUrl = event.target.value;
+        console.log("file", videoUrl)
+        // const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
         console.log("selected video are save in local storage", videoUrl);
         setJoinVideoUrl(videoUrl);
