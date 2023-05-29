@@ -254,7 +254,7 @@ const InstagramPosts = () => {
             }).catch(error => {
                 console.log(error);
             });
-
+            navigate('/compitation')
         } else {
             alert('Please choose video')
         }
