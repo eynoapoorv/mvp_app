@@ -20,13 +20,12 @@ const Compititation = () => {
     //const [posts, setPosts] = useState([]);
     useEffect(() => {
         handleCodeExchange();
-
+        getVideo()
     })
     /*****************************************************************************/
     /*****************************************************************************/
-    const video = localStorage.getItem('videoData');
     const getVideo = () => {
-
+        const video = localStorage.getItem('videoData');
 
         if (video) {
             try {
@@ -124,7 +123,7 @@ const Compititation = () => {
                                 </div>
                                 <div className="brand-img">
                                     <video
-                                        src={video}
+                                        src={getVideo}
                                     >
 
                                     </video>
