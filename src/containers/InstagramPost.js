@@ -45,7 +45,6 @@ const InstagramPosts = () => {
         requestBody.append('query', username);
        
         await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
-            withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
                 'Sec-Fetch-Mode': "navigate",
