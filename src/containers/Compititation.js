@@ -29,7 +29,7 @@ const Compititation = () => {
     /*****************************************************************************/
     const getVideo = () => {
         const storedVideoUrl = localStorage.getItem('videoData');
-        console.log(storedVideoUrl);
+        console.log("get video", storedVideoUrl);
         if (storedVideoUrl) {
             setVideoUrl(storedVideoUrl);
         }
@@ -50,7 +50,7 @@ const Compititation = () => {
             localStorage.setItem('auth-code', code);
             urlParams.delete('code');
         } else {
-            console.log("Codee not foundf....")
+            console.log("Codee not found....")
         }
         const auth_code = localStorage.getItem('auth-code');
 
@@ -115,8 +115,10 @@ const Compititation = () => {
                                     <h2 className="brand-winning-percent">80%</h2>
                                 </div>
                                 <div className="brand-img">
-                                    <video>
-                                        <source src={videoUrl} type="video/mp4" />
+                                    <video
+                                        src={videoUrl} type="video/mp4" width="200" height="350"
+                                    >
+
                                     </video>
                                     <div className="positive-mention">
                                         <span>80%</span><br />
