@@ -24,7 +24,7 @@ const InstagramPosts = () => {
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
         getUserProfileData();
-        //handleCodeExchange();
+        handleCodeExchange();
 
     }, [])
 
@@ -43,11 +43,11 @@ const InstagramPosts = () => {
         console.log(data)*/}
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
-           
-        
+
+
         fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
-  .then(response => response.text())
-  .then(data => console.log(data));
+            .then(response => response.text())
+            .then(data => console.log(data));
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
             .then((response) => {
                 console.log(response);
