@@ -12,7 +12,7 @@ import compitition_img2 from "../assets/images/compitition-img2.png"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CountdownTimer from './CountdownTimer';
-import Feed from '../Auth/Feed'
+import ReactPlayer from 'react-player'
 
 
 const Compititation = () => {
@@ -115,11 +115,13 @@ const Compititation = () => {
                                     <h2 className="brand-winning-percent">80%</h2>
                                 </div>
                                 <div className="brand-img">
-                                    <video
-                                        src={videoUrl} type="video/mp4" width="200" height="350"
-                                    >
-
-                                    </video>
+                                    <ReactPlayer
+                                        controls
+                                        src={videoUrl}
+                                        type="video/mp4"
+                                        width="200"
+                                        height="350"
+                                    />
                                     <div className="positive-mention">
                                         <span>80%</span><br />
                                         <span>Positive</span>
