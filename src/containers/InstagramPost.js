@@ -239,7 +239,8 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const handleChange = (event) => {
-        var videoUrl = event.target.value;
+        var video = event.target.value;
+        const videoUrl = JSON.stringify(video)
         console.log(videoUrl.media_url)
         // const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
