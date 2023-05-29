@@ -39,7 +39,19 @@ const InstagramPosts = () => {
             const tokenExchangeUrl = 'https://graph.facebook.com/oauth/access_token?client_id='+clientID+'&client_secret='+clientSecret+'&grant_type=client_credentials';
             axios.get(tokenExchangeUrl)
                 .then((response) => {
-                    console.log(response);
+                    console.log(response.data.access_token);
+                    axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,timestamp&access_token=${response.data.access_token}`)
+            .then((response) => {
+                console.log(response);
+                //localStorage.setItem('access_token', response.data.access_token);
+
+                //const accessToken = localStorage.getItem('access_token');
+                //fetchInstagramPost(accessToken)
+
+            })
+            .catch((error) => {
+                console.error('Token exchangeee failed:', error);
+            });
                 })
                 .catch((error) => {
                     console.error('Token exchange failed:', error);
