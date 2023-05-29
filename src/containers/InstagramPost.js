@@ -31,7 +31,7 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
-        var token = localStorage.getItem('access_token'); 
+        var token = localStorage.getItem('access_token');
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
@@ -45,9 +45,9 @@ const InstagramPosts = () => {
         requestBody.append('query', username);
 
         const response = await fetch(
-            process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}&access_token=${token}`,{
-                mode: 'no-cors',
-            }
+            process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=${username}&access_token=${token}`, {
+            mode: 'no-cors',
+        }
         )
 
         const { data } = await response.json()
@@ -224,7 +224,8 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const handleChange = (event) => {
-        var videoUrl = event.target.value;
+        var file = event.target.value;
+        const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
         console.log("selected video are save in local storage", videoUrl);
         setJoinVideoUrl(videoUrl);
