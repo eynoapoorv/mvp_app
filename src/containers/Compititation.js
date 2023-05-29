@@ -116,7 +116,7 @@ const Compititation = () => {
                                 </div>
                                 <div className="brand-img">
                                     <video
-                                        src={videoUrl} type="video/mp4"
+                                        src={videoUrl} type="video/mp4" width="20" height="auto"
                                     >
 
                                     </video>
