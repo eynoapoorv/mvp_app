@@ -56,8 +56,17 @@ const InstagramPosts = () => {
             }
         )*/}
 
-        
-        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+        const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                Authorization: `Bearer: ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            console.log(response.json())
+        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
@@ -78,7 +87,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });
+            });*/}
 
 
 
