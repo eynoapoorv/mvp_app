@@ -44,13 +44,6 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
 
-<<<<<<< HEAD
-        const response = await fetch(
-            process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=${username}&access_token=${token}`, {
-            mode: 'no-cors',
-        }
-        )
-=======
         {/*const response = await fetch(
             process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}&access_token=${token}`,{
                 withCredentials: true,
@@ -62,7 +55,6 @@ const InstagramPosts = () => {
                 }
             }
         )*/}
->>>>>>> 3a0912163af3f876ad410622369437b67a7b8743
 
         const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
             method: 'GET',
