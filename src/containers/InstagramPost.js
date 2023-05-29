@@ -56,27 +56,9 @@ const InstagramPosts = () => {
             }
         )*/}
 
-        const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
-            method: 'GET',
-            mode: 'no-cors',
-            withCredentials: true,
-            headers: {
-                Authorization: `Bearer: ${token}`,
-                'Content-Type': 'application/json',
-            }
-        })
-        console.log(response.json())
-        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
-            withCredentials: true,
-            headers: {
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': "no-cors",
-                'Sec-Fetch-Site': 'cross-site',
-                'Sec-Fetch-User': '?1',
-                Authorization: `Bearer ${token}`
-                
-            }
-        })
+      
+        //await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username)
+        await axios.get(`https://graph.facebook.com/v17.0/me/accounts?access_token` + token)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
@@ -87,7 +69,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });*/}
+            });
 
 
 
