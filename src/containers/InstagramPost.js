@@ -23,14 +23,14 @@ const InstagramPosts = () => {
     const [profileData, setProfileData] = useState('');
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
-        getUserProfileData();
+        //getUserProfileData();
         handleCodeExchange();
 
     }, [])
 
     /*****************************************************************************/
     /*****************************************************************************/
-    const getUserProfileData = async () => {
+    const getUserProfileData = async (username) => {
         //var token = localStorage.getItem('access_token'); 
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
@@ -43,11 +43,35 @@ const InstagramPosts = () => {
         console.log(data)*/}
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
+       
+        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+            withCredentials: true,
+            headers: {
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': "navigate",
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                "host": process.env.REACT_APP_INSTAGRAM_URL,
+                }
+            })
+            .then((response) => {
+                console.log(response);
+                //localStorage.setItem('access_token', response.data.access_token);
+
+                //const accessToken = localStorage.getItem('access_token');
+                //fetchInstagramPost(accessToken)
+
+            })
+            .catch((error) => {
+                console.error('Token exchangeee failed:', error);
+            });
 
 
-        fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
+
+
+        {/*fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
             .then(response => response.text())
-            .then(data => console.log(data));
+        .then(data => console.log(data));*/}
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=eyno_brajesh`)
             .then((response) => {
                 console.log(response);
@@ -80,7 +104,7 @@ const InstagramPosts = () => {
             console.log('herre')
             setTimeout(() => {
                 console.log('inside')
-                //getUserProfileData(uname);
+                getUserProfileData(uname);
             }, 2000);
         }
 
