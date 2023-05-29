@@ -193,6 +193,8 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const handleChange = (event) => {
         var videoUrl = event.target.value;
+        localStorage.setItem("videoData", videoUrl)
+        console.log("selected video are save in local storage", videoUrl);
         setJoinVideoUrl(videoUrl);
     }
     /*****************************************************************************/
@@ -256,7 +258,15 @@ const InstagramPosts = () => {
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
                                     <p>Likes : {feed.like_count}</p>
-                                    <p><input type='radio' id={i} name='feeds' value={feed.id} onChange={handleChange} /></p>
+                                    <p>
+                                        <input
+                                            type='radio'
+                                            id={i}
+                                            name='feeds'
+                                            value={feed.id}
+                                            onChange={handleChange}
+                                        />
+                                    </p>
                                 </li>
                             );
                         })}
