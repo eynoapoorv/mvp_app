@@ -20,18 +20,36 @@ const Compititation = () => {
     //const [posts, setPosts] = useState([]);
     useEffect(() => {
         handleCodeExchange();
-        
+
     })
     /*****************************************************************************/
     /*****************************************************************************/
+    const getVideo = () => {
+        const video = localStorage.getItem('videoData');
 
+        if (video) {
+            try {
+                const videoFile = JSON.parse(video);
+
+                const videoUrl = URL.createObjectURL(videoFile);
+
+                const videos = document.createElement('video');
+
+                videos.src = videoUrl
+            } catch (error) {
+                console.log("error in gatting video", error)
+            }
+        }
+    }
+    //****************************************************************************
+    //***************************************************************** */ */
     /**
      * Function to manage the code from instagram
      * 
      * @param null
      * @returns String||null
      */
-    const handleCodeExchange =  () => {
+    const handleCodeExchange = () => {
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
         console.log(code)
@@ -46,9 +64,9 @@ const Compititation = () => {
         if (auth_code) {
             const redirectURI = process.env.REACT_APP_DEV_REDIRECT_URL;
             const clientID = process.env.REACT_APP_CLIENT_ID;
-            const clientSecret =  process.env.REACT_APP_CLIENT_SECRET;
+            const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 
-            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL+'/oauth/access_token';
+            const tokenExchangeUrl = process.env.REACT_APP_INSTAGRAM_API_URL + '/oauth/access_token';
 
             const requestBody = new URLSearchParams();
             requestBody.append('client_id', clientID);
@@ -57,12 +75,12 @@ const Compititation = () => {
             requestBody.append('redirect_uri', redirectURI);
             requestBody.append('code', auth_code);
 
-             axios.post(tokenExchangeUrl, requestBody)
+            axios.post(tokenExchangeUrl, requestBody)
                 .then((response) => {
                     console.log(response)
-                    localStorage.setItem('access_token', response.data.access_token);  
-                    const accessToken =  localStorage.getItem('access_token');
-                    console.log(accessToken)   
+                    localStorage.setItem('access_token', response.data.access_token);
+                    const accessToken = localStorage.getItem('access_token');
+                    console.log(accessToken)
                     //fetchInstagramPost(accessToken)
                 })
                 .catch((error) => {
@@ -75,23 +93,23 @@ const Compititation = () => {
     // display 24 hours counter code 
     var dateTimeAfterOneDays;
 
-    if(localStorage.getItem("seconds")){
-      let updateTime = localStorage.getItem("seconds")
-      updateTime = Number(updateTime);
-     // updateTime = updateTime + new Date().getTime()
-      dateTimeAfterOneDays = updateTime;
-    }else{
-      const THREE_DAYS_IN_MS =  24 * 60 * 60 * 1000;
-      const NOW_IN_MS = new Date().getTime();
-      dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
-    }   
-     /*****************************************************************************/
+    if (localStorage.getItem("seconds")) {
+        let updateTime = localStorage.getItem("seconds")
+        updateTime = Number(updateTime);
+        // updateTime = updateTime + new Date().getTime()
+        dateTimeAfterOneDays = updateTime;
+    } else {
+        const THREE_DAYS_IN_MS = 24 * 60 * 60 * 1000;
+        const NOW_IN_MS = new Date().getTime();
+        dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+    }
+    /*****************************************************************************/
     /*****************************************************************************/
     return (
         <>
             <div className="front-section compitition-page">
                 <div className="front-image">
-                <CountdownTimer targetDate={dateTimeAfterOneDays} />
+                    <CountdownTimer targetDate={dateTimeAfterOneDays} />
                     <div className="compitition-content container">
                         <div className="brand1">
                             <div className="brand-name">
@@ -104,7 +122,7 @@ const Compititation = () => {
                                     <h2 className="brand-winning-percent">80%</h2>
                                 </div>
                                 <div className="brand-img">
-                                    <img src={compitition_img1} alt="" />
+                                    <img src={getVideo} alt="" />
                                     <div className="positive-mention">
                                         <span>80%</span><br />
                                         <span>Positive</span>
@@ -148,7 +166,7 @@ const Compititation = () => {
                     <br />
                     <div className="battle-btn">
                         {/*<Link to="/instagramFeed">SELECT VIDEO</Link>*/}
-                        
+
                     </div>
                 </div>
 

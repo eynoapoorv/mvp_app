@@ -43,8 +43,8 @@ const InstagramPosts = () => {
         console.log(data)*/}
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
-       
-        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+
+        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
@@ -52,8 +52,8 @@ const InstagramPosts = () => {
                 'Sec-Fetch-Site': 'none',
                 'Sec-Fetch-User': '?1',
                 "host": process.env.REACT_APP_INSTAGRAM_URL,
-                }
-            })
+            }
+        })
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
@@ -256,6 +256,7 @@ const InstagramPosts = () => {
                 console.log(error);
             });
             navigate('/compitation')
+            alert("GO TO COMPETATION PAGE")
         } else {
             alert('Please choose video')
         }
