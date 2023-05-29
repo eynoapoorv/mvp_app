@@ -63,8 +63,8 @@ const InstagramPosts = () => {
                 Authorization: `Bearer: ${token}`,
                 'Content-Type': 'application/json',
             }
-            })
-            console.log(response.json())
+        })
+        console.log(response.json())
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
@@ -311,7 +311,7 @@ const InstagramPosts = () => {
                                             type='radio'
                                             id={i}
                                             name='feeds'
-                                            value={feed.id}
+                                            value={feed}
                                             onChange={handleChange}
                                         />
                                     </p>
