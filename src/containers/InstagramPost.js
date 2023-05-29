@@ -240,7 +240,7 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const handleChange = (event) => {
         var videoUrl = event.target.value;
-        console.log("file", videoUrl)
+        console.log(videoUrl.media_url)
         // const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
         console.log("selected video are save in local storage", videoUrl);
