@@ -45,7 +45,9 @@ const InstagramPosts = () => {
         requestBody.append('query', username);
 
         const response = await fetch(
-            `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}`
+            process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}&access_token=${token}`,{
+                mode: 'no-cors',
+            }
         )
 
         const { data } = await response.json()
