@@ -117,7 +117,7 @@ const Compititation = () => {
                                 <div className="brand-img">
                                     <ReactPlayer
                                         controls
-                                        src={videoUrl}
+                                        url={videoUrl}
                                         type="video/mp4"
                                         width="200"
                                         height="350"
