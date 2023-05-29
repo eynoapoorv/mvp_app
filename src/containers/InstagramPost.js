@@ -43,7 +43,7 @@ const InstagramPosts = () => {
         console.log(data)*/}
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
-        
+
         const response = await fetch(
             process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}`,{
                 mode: 'no-cors',
@@ -72,7 +72,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });*/}
+            });* /}
 
 
 
@@ -248,7 +248,7 @@ const InstagramPosts = () => {
             }];
             let res = await axios.post('user/join', notificationdata, {
                 headers: {
-                    'Accept': 'application/json',
+                    'Accept': 'applstatusication/json',
                     'Content-Type': 'application/json;charset=UTF-8',
                     'Authorization': `Bearer ${accessToken}`
                 }
