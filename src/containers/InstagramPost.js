@@ -44,22 +44,44 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
 
+<<<<<<< HEAD
         const response = await fetch(
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=${username}&access_token=${token}`, {
             mode: 'no-cors',
         }
         )
+=======
+        {/*const response = await fetch(
+            process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}&access_token=${token}`,{
+                withCredentials: true,
+                headers: {
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': "navigate",
+                    'Sec-Fetch-Site': 'cross-site',
+                    'Sec-Fetch-User': '?1',
+                }
+            }
+        )*/}
+>>>>>>> 3a0912163af3f876ad410622369437b67a7b8743
 
-        const { data } = await response.json()
-        console.log(data);
+        const response = await fetch(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
+            method: 'GET',
+            mode: 'no-cors',
+            headers: {
+                Authorization: `Bearer: ${token}`,
+                'Content-Type': 'application/json',
+            }
+            })
+            console.log(response.json())
         {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': "navigate",
-                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-Mode': "no-cors",
+                'Sec-Fetch-Site': 'cross-site',
                 'Sec-Fetch-User': '?1',
-                "host": process.env.REACT_APP_INSTAGRAM_URL,
+                Authorization: `Bearer ${token}`
+                
             }
         })
             .then((response) => {
@@ -72,7 +94,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });* /}
+            });*/}
 
 
 
