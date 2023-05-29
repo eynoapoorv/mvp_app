@@ -93,6 +93,7 @@ const Compititation = () => {
     // display 24 hours counter code 
     var dateTimeAfterOneDays;
 
+<<<<<<< HEAD
     if (localStorage.getItem("seconds")) {
         let updateTime = localStorage.getItem("seconds")
         updateTime = Number(updateTime);
@@ -104,6 +105,19 @@ const Compititation = () => {
         dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
     }
     /*****************************************************************************/
+=======
+    if(localStorage.getItem("counter_time")){
+      let updateTime = localStorage.getItem("counter_time")
+      updateTime = Number(updateTime);
+     // updateTime = updateTime + new Date().getTime()
+      dateTimeAfterOneDays = updateTime;
+    }else{
+      const THREE_DAYS_IN_MS =  24 * 60 * 60 * 1000;
+      const NOW_IN_MS = new Date().getTime();
+      dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+    }   
+     /*****************************************************************************/
+>>>>>>> f9038ce57d1e751dba45ada041e66f91a7df4143
     /*****************************************************************************/
     return (
         <>

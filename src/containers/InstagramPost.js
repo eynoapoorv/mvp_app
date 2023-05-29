@@ -43,8 +43,21 @@ const InstagramPosts = () => {
         console.log(data)*/}
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
+<<<<<<< HEAD
 
         await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username, {
+=======
+        
+        const response = await fetch(
+            process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}`,{
+                mode: 'no-cors',
+            }
+        )
+
+        const { data } = await response.json()
+        console.log(data);
+        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+>>>>>>> f9038ce57d1e751dba45ada041e66f91a7df4143
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
@@ -64,7 +77,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });
+            });*/}
 
 
 
@@ -255,8 +268,12 @@ const InstagramPosts = () => {
             }).catch(error => {
                 console.log(error);
             });
+<<<<<<< HEAD
             navigate('/compitation')
             alert("GO TO COMPETATION PAGE")
+=======
+
+>>>>>>> f9038ce57d1e751dba45ada041e66f91a7df4143
         } else {
             alert('Please choose video')
         }
