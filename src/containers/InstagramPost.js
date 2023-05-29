@@ -38,14 +38,14 @@ const InstagramPosts = () => {
 
             const tokenExchangeUrl = 'https://graph.facebook.com/oauth/access_token';
 
-            //const requestBody = new URLSearchParams();
-            requestBody.append('client_id', clientID);
-            requestBody.append('client_secret', clientSecret);
-            requestBody.append('grant_type', 'client_credentials');
+            const requestBody1 = new URLSearchParams();
+            requestBody1.append('client_id', clientID);
+            requestBody1.append('client_secret', clientSecret);
+            requestBody1.append('grant_type', 'client_credentials');
             //requestBody.append('redirect_uri', redirectURI);
             //requestBody.append('code', code);
 
-            axios.get(tokenExchangeUrl, requestBody)
+            axios.get(tokenExchangeUrl, requestBody1)
                 .then((response) => {
                     console.log(response)
                 })
