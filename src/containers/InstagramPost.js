@@ -40,7 +40,7 @@ const InstagramPosts = () => {
             axios.get(tokenExchangeUrl)
                 .then((response) => {
                     console.log(response.data.access_token);
-                    axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,timestamp&access_token=${response.data.access_token}`)
+                    axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,like_count,timestamp&access_token=${response.data.access_token}`)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
