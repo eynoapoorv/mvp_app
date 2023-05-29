@@ -1,7 +1,7 @@
 /**
  * File Name: useCountdown.js
  * 
- * Description: manage  counter hook for cocompetition the login user
+ * Description: manage counter hook for competition the login user
  * 
  * Author: Eynosoft Team
  */
@@ -30,7 +30,14 @@ const useCountdown = (targetDate) => {
 
   return getReturnValues(countDown);
 };
-
+ /*****************************************************************************/
+ /*****************************************************************************/
+    /**
+     * Function to set the username
+     * 
+     * @param Number
+     * @returns Number|null
+     */
 const getReturnValues = (countDown) => {
   // calculate time left
   const hours = Math.floor(

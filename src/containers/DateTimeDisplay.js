@@ -1,4 +1,11 @@
-import React from 'react';
+
+/**
+ * File Name: DateTimeDisplay.js
+ * 
+ * Description: Display counter time for competition the login user
+ * 
+ * Author: Eynosoft Team
+ */import React from 'react';
 
 const DateTimeDisplay = ({ value, type, isDanger }) => {
   return (
