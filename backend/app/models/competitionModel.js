@@ -9,11 +9,27 @@ var mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 const schema = new Schema({
-    opponentOne: { type: String, required: false, default: '' },
-    opponentTwo: { type: String, required: false, default: '' },
-    status: { type: String, required: false, default: '' },
-    isActive: { type: Boolean, required: false, default: false }
-},{
+    opponentOne: {
+        type: String,
+        required: false,
+        default: ''
+    },
+    opponentTwo: {
+        type: String,
+        required: false,
+        default: ''
+    },
+    status: {
+        type: String,
+        required: false,
+        default: ''
+    },
+    isActive: {
+        type: Boolean,
+        required: false,
+        default: false
+    }
+}, {
     timestamps: true
 });
 
