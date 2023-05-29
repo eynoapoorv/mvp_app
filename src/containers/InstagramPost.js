@@ -56,9 +56,10 @@ const InstagramPosts = () => {
             }
         )*/}
 
-      
+        var appid= 955344522324478;
+        var appsecret = '1cf4e43c04c4c042e5174d29164ee006';
         //await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username)
-        await axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,timestamp&access_token=` + token)
+        await axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,timestamp&access_token=${appid}|${appsecret}`)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
