@@ -24,8 +24,9 @@ const Compititation = () => {
     })
     /*****************************************************************************/
     /*****************************************************************************/
+    const video = localStorage.getItem('videoData');
     const getVideo = () => {
-        const video = localStorage.getItem('videoData');
+
 
         if (video) {
             try {
@@ -92,18 +93,18 @@ const Compititation = () => {
     /*****************************************************************************/
     // display 24 hours counter code 
     var dateTimeAfterOneDays;
-    if(localStorage.getItem("counter_time")){
-      let updateTime = localStorage.getItem("counter_time")
-      updateTime = Number(updateTime);
-     // updateTime = updateTime + new Date().getTime()
-      dateTimeAfterOneDays = updateTime;
-    }else{
-      const THREE_DAYS_IN_MS =  24 * 60 * 60 * 1000;
-      const NOW_IN_MS = new Date().getTime();
-      dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
-    }   
-     /*****************************************************************************/
-     
+    if (localStorage.getItem("counter_time")) {
+        let updateTime = localStorage.getItem("counter_time")
+        updateTime = Number(updateTime);
+        // updateTime = updateTime + new Date().getTime()
+        dateTimeAfterOneDays = updateTime;
+    } else {
+        const THREE_DAYS_IN_MS = 24 * 60 * 60 * 1000;
+        const NOW_IN_MS = new Date().getTime();
+        dateTimeAfterOneDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+    }
+    /*****************************************************************************/
+
     /*****************************************************************************/
     return (
         <>
@@ -122,7 +123,12 @@ const Compititation = () => {
                                     <h2 className="brand-winning-percent">80%</h2>
                                 </div>
                                 <div className="brand-img">
-                                    <img src={getVideo} alt="" />
+                                    <video
+                                        src={video}
+                                    >
+
+                                    </video>
+
                                     <div className="positive-mention">
                                         <span>80%</span><br />
                                         <span>Positive</span>
