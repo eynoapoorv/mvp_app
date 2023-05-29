@@ -31,7 +31,7 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
-        //var token = localStorage.getItem('access_token'); 
+        var token = localStorage.getItem('access_token'); 
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
@@ -46,6 +46,7 @@ const InstagramPosts = () => {
        
         await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             headers: {
+                Authorization: `Bearer ${token}`,
                 'Sec-Fetch-Dest': 'document',
                 'Sec-Fetch-Mode': "navigate",
                 'Sec-Fetch-Site': 'none',
