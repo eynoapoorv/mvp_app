@@ -55,19 +55,17 @@ const InstagramPosts = () => {
                 }
             }
         )*/}
-        
-        const response = await axios.get(process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}`);
 
-        const { data } = await response.json()
-        console.log(data);
-        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+        
+        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
                 'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': "navigate",
-                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-Mode': "no-cors",
+                'Sec-Fetch-Site': 'cross-site',
                 'Sec-Fetch-User': '?1',
-                "host": process.env.REACT_APP_INSTAGRAM_URL,
+                Authorization: `Bearer ${token}`
+                
             }
         })
             .then((response) => {
@@ -80,7 +78,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });* /}
+            });
 
 
 
