@@ -39,7 +39,7 @@ const InstagramPosts = () => {
             const tokenExchangeUrl = 'https://graph.facebook.com/oauth/access_token?client_id='+clientID+'&client_secret='+clientSecret+'&grant_type=client_credentials';
             axios.get(tokenExchangeUrl)
                 .then((response) => {
-                    console.log(response)
+                    console.log(response.access_token);
                 })
                 .catch((error) => {
                     console.error('Token exchange failed:', error);
