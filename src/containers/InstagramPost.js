@@ -58,7 +58,7 @@ const InstagramPosts = () => {
 
       
         //await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username)
-        await axios.get(`https://graph.facebook.com/v17.0/9604541066237514/accounts?access_token=` + token)
+        await axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,timestamp&access_token=` + token)
             .then((response) => {
                 console.log(response);
                 //localStorage.setItem('access_token', response.data.access_token);
