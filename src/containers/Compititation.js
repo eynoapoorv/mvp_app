@@ -91,7 +91,7 @@ const Compititation = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     // display 24 hours counter code 
-
+    var dateTimeAfterOneDays;
     if(localStorage.getItem("counter_time")){
       let updateTime = localStorage.getItem("counter_time")
       updateTime = Number(updateTime);
