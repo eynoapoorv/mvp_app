@@ -75,8 +75,8 @@ const Compititation = () => {
     // display 24 hours counter code 
     var dateTimeAfterOneDays;
 
-    if(localStorage.getItem("seconds")){
-      let updateTime = localStorage.getItem("seconds")
+    if(localStorage.getItem("counter_time")){
+      let updateTime = localStorage.getItem("counter_time")
       updateTime = Number(updateTime);
      // updateTime = updateTime + new Date().getTime()
       dateTimeAfterOneDays = updateTime;
