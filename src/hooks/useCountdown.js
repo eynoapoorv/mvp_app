@@ -1,3 +1,11 @@
+/**
+ * File Name: useCountdown.js
+ * 
+ * Description: manage  counter hook for cocompetition the login user
+ * 
+ * Author: Eynosoft Team
+ */
+
 import { useEffect, useState } from 'react';
 
 const useCountdown = (targetDate) => {

@@ -302,7 +302,7 @@ const InstagramPosts = () => {
                 <div className="container">
                     <ul>
                         {feeds.map((feed, i) => {
-                            console.log(feed.username);
+                            console.log(feed);
                             //setUsername(feed.username);
                             return (
 
