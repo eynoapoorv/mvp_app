@@ -17,7 +17,8 @@ import ReactPlayer from 'react-player'
 
 const Compititation = () => {
 
-    const [videoUrl, setVideoUrl] = useState('');
+    const [videoCompt1, setVideoCompt1] = useState('');
+    const [videoCompt2, setVideoCompt2] = useState('');
 
     //intialization of instances and varialbles
     //const [posts, setPosts] = useState([]);
@@ -31,7 +32,7 @@ const Compititation = () => {
         const storedVideoUrl = localStorage.getItem('videoData');
         console.log("get video", storedVideoUrl);
         if (storedVideoUrl) {
-            setVideoUrl(storedVideoUrl);
+            setVideoCompt1(storedVideoUrl);
         }
     }
     //****************************************************************************
@@ -114,10 +115,12 @@ const Compititation = () => {
                                     <p>Lorem ipsum dolor sit amet.</p>
                                     <h2 className="brand-winning-percent">80%</h2>
                                 </div>
+
                                 <div className="brand-img">
+                                    {/* Competator 1 */}
                                     <ReactPlayer
                                         controls
-                                        url={videoUrl}
+                                        url={videoCompt1}
                                         type="video/mp4"
                                         width="200"
                                         height="350"
@@ -148,7 +151,15 @@ const Compititation = () => {
                                     <h2 className="brand-winning-percent">60%</h2>
                                 </div>
                                 <div className="brand-img">
-                                    <img src={compitition_img2} alt="" />
+                                    {/* Competator 2 */}
+                                    <ReactPlayer
+                                        controls
+                                        url={videoCompt2}
+                                        type="video/mp4"
+                                        width="200"
+                                        height="350"
+                                    />
+
                                     <div className="positive-mention">
                                         <span>60%</span><br />
                                         <span>Positive</span>

@@ -10,10 +10,18 @@ const router = express.Router();
 const msg = require('../helpers/messages.json');
 const userService = require('../services/user.service');
 
+
 router.post('/join', joinCompetition);
 router.get('/userprofiledata', getUserProfileData);
 router.post('/userdata', getUserData);
 router.post('/pdata', getpData);
+
+// create competation controla file and import..in this file
+// Competation control
+const competionControl = require("./competition.control")
+router.post('/competation', competionControl)
+//----------------------------------------------
+
 
 module.exports = router;
 /**
