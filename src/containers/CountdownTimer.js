@@ -1,3 +1,11 @@
+/**
+ * File Name: CountdownTimer.js
+ * 
+ * Description: Manage the data for competition counter time the login user
+ * 
+ * Author: Eynosoft Team
+ */
+
 import React from 'react';
 import DateTimeDisplay from './DateTimeDisplay';
 import { useCountdown } from '../hooks/useCountdown';
