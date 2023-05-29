@@ -44,7 +44,7 @@ const InstagramPosts = () => {
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
 
-        const response = await fetch(
+        {/*const response = await fetch(
             process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}&access_token=${token}`,{
                 withCredentials: true,
                 headers: {
@@ -54,7 +54,9 @@ const InstagramPosts = () => {
                     'Sec-Fetch-User': '?1',
                 }
             }
-        )
+        )*/}
+        
+        const response = await axios.get(process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}`);
 
         const { data } = await response.json()
         console.log(data);
