@@ -239,9 +239,9 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const handleChange = (event) => {
-        var video = event.target.value;
-        const videoUrl = JSON.stringify(video)
-        console.log(videoUrl.media_url)
+        var videoUrl = event.target.value;
+
+        console.log(videoUrl)
         // const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
         console.log("selected video are save in local storage", videoUrl);
@@ -314,7 +314,7 @@ const InstagramPosts = () => {
                                             type='radio'
                                             id={i}
                                             name='feeds'
-                                            value={feed}
+                                            value={feed.media_url}
                                             onChange={handleChange}
                                         />
                                     </p>
