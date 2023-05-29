@@ -12,11 +12,11 @@ const schema = new Schema({
     name: { type: String, required: false, default: '' },
     email: { type: String, required: false, unique: true, index: true, default: '' },
     isActive: { type: Boolean, required: false, default: true },
-},{
+}, {
     timeStamps: true
 });
 
-schema.set('toJSON', {virtuals: true, versionKey: fasle});
+schema.set('toJSON', { virtuals: true, versionKey: false });
 
 schema.plugin(mongoosePaginate);
 

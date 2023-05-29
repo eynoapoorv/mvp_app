@@ -26,7 +26,7 @@ module.exports = router;
  */
 function joinCompetition(req, res, next) {
     userService.joinCompetion(req)
-        .then(notification => notification ? (notification && notification.isActive == true ? res.json({ status: true, message: msg.user.login.success, data: notification }) : res.status(400).json({ status: false, message: msg.user.login.active })) : res.status(400).json({ status: false, message: msg.user.login.error }))
+        .then(notification => notification ? (notification && notification.isActive === true ? res.json({ status: true, message: msg.user.login.success, data: notification }) : res.status(400).json({ status: false, message: msg.user.login.active })) : res.status(400).json({ status: false, message: msg.user.login.error }))
         .catch(err => next(err));
 }
 
@@ -43,8 +43,8 @@ function joinCompetition(req, res, next) {
 function getUserProfileData(req, res, next) {
     userService.getUserData(req)
         .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
-        .catch(err => next(res.json({ status: false, message: err })));      
-} 
+        .catch(err => next(res.json({ status: false, message: err })));
+}
 /************************************************************************************/
 /************************************************************************************/
 /**
@@ -56,9 +56,9 @@ function getUserProfileData(req, res, next) {
  * @returns JSON|null
  */
 function getUserData(req, res, next) {
-        userService.getUserData(req)
+    userService.getUserData(req)
         .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
-        .catch(err => next(res.json({ status: false, message: err })));    
+        .catch(err => next(res.json({ status: false, message: err })));
 }
 /************************************************************************************/
 /************************************************************************************/
@@ -66,6 +66,6 @@ function getUserData(req, res, next) {
 function getpData(req, res, next) {
     console.log(req)
     userService.getpData(req)
-    .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
-    .catch(err => next(res.json({ status: false, message: err })));    
+        .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
+        .catch(err => next(res.json({ status: false, message: err })));
 }
