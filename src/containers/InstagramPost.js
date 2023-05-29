@@ -31,7 +31,7 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
-        var token = localStorage.getItem('access_token'); 
+        //var token = localStorage.getItem('access_token'); 
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
@@ -45,6 +45,7 @@ const InstagramPosts = () => {
         requestBody.append('query', username);
        
         await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+            withCredentials: true,
             headers: {
                 Authorization: `Bearer ${token}`
                 }
@@ -250,7 +251,7 @@ const InstagramPosts = () => {
             }).catch(error => {
                 console.log(error);
             });
-            navigate('/compitation')
+
         } else {
             alert('Please choose video')
         }
