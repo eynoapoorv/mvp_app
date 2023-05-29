@@ -31,7 +31,7 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     /*****************************************************************************/
     const getUserProfileData = async (username) => {
-        var token = localStorage.getItem('access_token'); 
+        //var token = localStorage.getItem('access_token'); 
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
@@ -43,11 +43,18 @@ const InstagramPosts = () => {
         console.log(data)*/}
         const requestBody = new URLSearchParams();
         requestBody.append('query', username);
-       
-        await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
+        let response = await fetch(process.env.REACT_APP_INSTAGRAM_URL +`/web/search/topsearch/?query=${username}`, {
+            method: 'GET'
+        });
+        console.log(response);
+        {/*await axios.get(process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username,{
             withCredentials: true,
             headers: {
-                Authorization: `Bearer ${token}`
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': "navigate",
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                "host": process.env.REACT_APP_INSTAGRAM_URL,
                 }
             })
             .then((response) => {
@@ -60,7 +67,7 @@ const InstagramPosts = () => {
             })
             .catch((error) => {
                 console.error('Token exchangeee failed:', error);
-            });
+            });*/}
 
 
 
