@@ -94,7 +94,7 @@ async function competationData(req) {
                 media_Url: param.media_url
             }
         }
-        const Item = new competitionModel(input);
+        const Item = new competitionModel({ input });
 
         const data = await Item.save();
         if (data) {

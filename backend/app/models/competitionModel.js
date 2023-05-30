@@ -53,9 +53,10 @@ const schema = new Schema({
     //     required: false,
     //     default: false
     // }
-}, {
-    timestamps: true
-});
+},
+    {
+        timestamps: true
+    });
 
 schema.set('toJSON', { virtuals: true, versionKey: false });
 
