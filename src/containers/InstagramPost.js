@@ -305,7 +305,7 @@ const InstagramPosts = () => {
                     <h3>Select Video</h3>
                     <button onClick={() => joinCompetition()}>JOIN COMPETITION</button>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form >
                     <div className="container">
                         <ul>
                             {feeds.map((feed, i) => {
