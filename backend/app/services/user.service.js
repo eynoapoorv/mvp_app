@@ -36,7 +36,7 @@ async function joinCompetion(param) {
  * @param {*} param
  * @returns JSON|null 
  */
-async function getUserProfileData(param) {
+async function getUserProfileData() {
     try {
         var param = req.body;
 
