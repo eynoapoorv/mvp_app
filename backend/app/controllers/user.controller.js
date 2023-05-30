@@ -50,6 +50,7 @@ function joinCompetition(req, res, next) {
  * @returns JSON|null
  */
 function saveCompetitionData(req, res, next) {
+    console.log("Test save competation")
     userService.competationData(req)
         .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.competation.error, data: [] }))
         .catch(err => next(res.json({ status: false, message: err })));
