@@ -27,9 +27,21 @@ const schema = new Schema({
         }
     },
     opponentTwo: {
-        type: String,
-        required: false,
-        default: ''
+        userId: {
+            type: String,
+            required: false,
+            default: ''
+        },
+        media_Url: {
+            type: String,
+            required: false,
+            default: ''
+        },
+        username: {
+            type: String,
+            required: false,
+            default: ''
+        }
     },
     status: {
         type: String,
