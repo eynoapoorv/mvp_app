@@ -15,7 +15,6 @@ module.exports = {
     getUserData,
     getUserProfileData,
     competationData,
-
 }
 /************************************************************************************/
 /************************************************************************************/
@@ -84,6 +83,7 @@ async function getUserData(param) {
  * @returns JSON|null 
  */
 async function competationData(req) {
+    console.log("competation DATA")
     try {
         const param = req.body;
 
