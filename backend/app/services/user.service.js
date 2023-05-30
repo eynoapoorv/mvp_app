@@ -7,12 +7,14 @@
 
 const config = require('../config/index');
 const msg = require('../helpers/messages.json');
+const competitionModel = require("../models/competitionModel")
 
 
 module.exports = {
     joinCompetion,
     getUserData,
     getUserProfileData,
+    competationData,
 
 }
 /************************************************************************************/
@@ -73,3 +75,36 @@ async function getUserData(param) {
 }
 /************************************************************************************/
 /************************************************************************************/
+
+
+/**
+ *  Competation data save
+ * 
+ * @param {*} param
+ * @returns JSON|null 
+ */
+async function competationData(req) {
+    try {
+        const param = req.body;
+
+        let input = {
+            opponentOne: [{
+                id: param.id,
+                username: param.username,
+                media_url: param.media_url
+            }]
+        }
+        const Item = new competitionModel(input);
+
+        const data = await Item.save();
+        if (data) {
+            console.log(data);
+            return true;
+        } else {
+            return false;
+        }
+    } catch (err) {
+        console.log('Error', err);
+        return false;
+    }
+}

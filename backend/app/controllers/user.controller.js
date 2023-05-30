@@ -15,11 +15,12 @@ router.post('/join', joinCompetition);
 router.get('/userprofiledata', getUserProfileData);
 router.post('/userdata', getUserData);
 router.post('/pdata', getpData);
+router.post('/saveCompetitionData', saveCompetitionData)
 
 // create competation controla file and import..in this file
 // Competation control
-const competionControl = require("./competition.control")
-router.post('/competation', competionControl)
+// const competionControl = require("./competition.control")
+// router.post('/competation', competionControl)
 //----------------------------------------------
 
 
@@ -37,6 +38,23 @@ function joinCompetition(req, res, next) {
         .then(notification => notification ? (notification && notification.isActive === true ? res.json({ status: true, message: msg.user.login.success, data: notification }) : res.status(400).json({ status: false, message: msg.user.login.active })) : res.status(400).json({ status: false, message: msg.user.login.error }))
         .catch(err => next(err));
 }
+
+/*************************************************************************************
+ * *************************************************************************************/
+/**
+ * Function for save compt. data 
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns JSON|null
+ */
+function saveCompetitionData(req, res, next) {
+    userService.competationData(req)
+        .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.competation.error, data: [] }))
+        .catch(err => next(res.json({ status: false, message: err })));
+}
+
 
 /************************************************************************************/
 /************************************************************************************/
@@ -77,3 +95,5 @@ function getpData(req, res, next) {
         .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.common.no_data_err, data: [] }))
         .catch(err => next(res.json({ status: false, message: err })));
 }
+
+

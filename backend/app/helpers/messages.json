@@ -5,6 +5,11 @@
         "no_data_err": "Data not found.",
         "invalid": "Invalid inputs"
     },
+    "competation": {
+        "error": "ERROR in data saving",
+        
+        "invalid": "Invalid inputs"
+    },
     "user": {
         "signup": {
             "success": "Signup successfully.",
