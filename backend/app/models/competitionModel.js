@@ -26,33 +26,33 @@ const schema = new Schema({
             default: ''
         }
     },
-    opponentTwo: {
-        userId: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        media_Url: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        username: {
-            type: String,
-            required: false,
-            default: ''
-        }
-    },
-    status: {
-        type: String,
-        required: false,
-        default: ''
-    },
-    isActive: {
-        type: Boolean,
-        required: false,
-        default: false
-    }
+    // opponentTwo: {
+    //     userId: {
+    //         type: String,
+    //         required: false,
+    //         default: ''
+    //     },
+    //     media_Url: {
+    //         type: String,
+    //         required: false,
+    //         default: ''
+    //     },
+    //     username: {
+    //         type: String,
+    //         required: false,
+    //         default: ''
+    //     }
+    // },
+    // status: {
+    //     type: String,
+    //     required: false,
+    //     default: ''
+    // },
+    // isActive: {
+    //     type: Boolean,
+    //     required: false,
+    //     default: false
+    // }
 }, {
     timestamps: true
 });
