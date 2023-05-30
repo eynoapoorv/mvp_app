@@ -33,29 +33,29 @@ const InstagramPosts = () => {
     const getUserProfileData = async (username) => {
         var token = localStorage.getItem('access_token');
         const redirectURI = process.env.REACT_APP_DEV_REDIRECT_URL;
-            const clientID = "955344522324478";
-            const clientSecret = "1cf4e43c04c4c042e5174d29164ee006";
+        const clientID = "955344522324478";
+        const clientSecret = "1cf4e43c04c4c042e5174d29164ee006";
 
-            const tokenExchangeUrl = 'https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id='+clientID+'&client_secret='+clientSecret+'&fb_exchange_token=ecabe3cde4661e8960ad71a2839f5e75';
-            axios.get(tokenExchangeUrl)
-                .then((response) => {
-                    console.log(response.data.access_token);
-                    axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,like_count,timestamp&access_token=${clientID}|${clientSecret}`)
+        const tokenExchangeUrl = 'https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=' + clientID + '&client_secret=' + clientSecret + '&fb_exchange_token=ecabe3cde4661e8960ad71a2839f5e75';
+        axios.get(tokenExchangeUrl)
             .then((response) => {
-                console.log(response);
-                //localStorage.setItem('access_token', response.data.access_token);
+                console.log(response.data.access_token);
+                axios.get(`https://graph.facebook.com/v17.0/17971469000516419?fields=id,media_type,media_url,owner,like_count,timestamp&access_token=${clientID}|${clientSecret}`)
+                    .then((response) => {
+                        console.log(response);
+                        //localStorage.setItem('access_token', response.data.access_token);
 
-                //const accessToken = localStorage.getItem('access_token');
-                //fetchInstagramPost(accessToken)
+                        //const accessToken = localStorage.getItem('access_token');
+                        //fetchInstagramPost(accessToken)
 
+                    })
+                    .catch((error) => {
+                        console.error('Token exchangeee failed:', error);
+                    });
             })
             .catch((error) => {
-                console.error('Token exchangeee failed:', error);
+                console.error('Token exchange failed:', error);
             });
-                })
-                .catch((error) => {
-                    console.error('Token exchange failed:', error);
-                });
         {/*const response = await fetch(
             //process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username+`&access_token=`+token
             process.env.REACT_APP_INSTAGRAM_URL + `/web/search/topsearch/?query=` + username
@@ -305,32 +305,33 @@ const InstagramPosts = () => {
                     <h3>Select Video</h3>
                     <button onClick={() => joinCompetition()}>JOIN COMPETITION</button>
                 </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="container">
+                        <ul>
+                            {feeds.map((feed, i) => {
+                                console.log(feed);
+                                //setUsername(feed.username);
+                                return (
 
-                <div className="container">
-                    <ul>
-                        {feeds.map((feed, i) => {
-                            console.log(feed);
-                            //setUsername(feed.username);
-                            return (
+                                    <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
+                                        <Feed key={feed.id} feed={feed} />
+                                        <p>Likes : {feed.like_count}</p>
+                                        <p>
+                                            <input
+                                                type='radio'
+                                                id={i}
+                                                name='feeds'
+                                                value={feed.media_url}
+                                                onChange={handleChange}
+                                            />
+                                        </p>
+                                    </li>
+                                );
+                            })}
+                        </ul>
 
-                                <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
-                                    <Feed key={feed.id} feed={feed} />
-                                    <p>Likes : {feed.like_count}</p>
-                                    <p>
-                                        <input
-                                            type='radio'
-                                            id={i}
-                                            name='feeds'
-                                            value={feed.media_url}
-                                            onChange={handleChange}
-                                        />
-                                    </p>
-                                </li>
-                            );
-                        })}
-                    </ul>
-
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     );

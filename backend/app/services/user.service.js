@@ -7,13 +7,13 @@
 
 const config = require('../config/index');
 const msg = require('../helpers/messages.json');
-const fetch = require('node-fetch');
+
 
 module.exports = {
     joinCompetion,
     getUserData,
     getUserProfileData,
-    getpData
+
 }
 /************************************************************************************/
 /************************************************************************************/
@@ -38,15 +38,15 @@ async function joinCompetion(param) {
 async function getUserProfileData(param) {
     try {
         var param = req.body;
-       
+
         if (data) {
             console.log(data._id);
             return data._id;
         } else {
             return false;
         }
-    } catch(err) {
-        console.log('Error',err);
+    } catch (err) {
+        console.log('Error', err);
         return false;
     }
 }
@@ -59,33 +59,17 @@ async function getUserProfileData(param) {
 async function getUserData(param) {
     try {
         var param = req.body;
-       
+
         if (data) {
             console.log(data._id);
             return data._id;
         } else {
             return false;
         }
-    } catch(err) {
-        console.log('Error',err);
+    } catch (err) {
+        console.log('Error', err);
         return false;
     }
 }
 /************************************************************************************/
 /************************************************************************************/
-async function getpData(param) {
-    try {
-        var param = req.body;
-        fetch('https://www.instagram.com/web/search/topsearch/?query=eynobrajesh')
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
-    });
-        
-    } catch(err) {
-        console.log('Error',err);
-        return false;
-    }
-}
