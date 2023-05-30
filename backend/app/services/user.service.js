@@ -91,7 +91,7 @@ async function competationData(req) {
             opponentOne: {
                 userId: param.userId,
                 username: param.username,
-                media_url: param.media_url
+                media_Url: param.media_url
             }
         }
         const Item = new competitionModel(input);
