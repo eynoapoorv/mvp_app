@@ -88,11 +88,11 @@ async function competationData(req) {
         const param = req.body;
 
         let input = {
-            opponentOne: [{
-                id: param.id,
+            opponentOne: {
+                userId: param.userId,
                 username: param.username,
                 media_url: param.media_url
-            }]
+            }
         }
         const Item = new competitionModel(input);
 
