@@ -9,6 +9,7 @@ const express = require('express');
 const router = express.Router();
 const msg = require('../helpers/messages.json');
 const userService = require('../services/user.service');
+const competitionModel = require('../models/competitionModel');
 
 
 router.post('/join', joinCompetition);
@@ -49,9 +50,24 @@ function joinCompetition(req, res, next) {
  * @param {*} next 
  * @returns JSON|null
  */
-function saveCompetitionData(req, res, next) {
-    console.log("Test save competation")
-    console.log(req)
+const saveCompetitionData = async (req, res, next) => {
+    try {
+        const { opponentOne } = req.body;
+        const item = await new competitionModel({
+            opponentOne,
+        }).save();
+        res.status(201).send({
+            success: true,
+            message: "Add succesfully",
+            item,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    // console.log("Test save competation")
+    // console.log(req)
     // userService.competationData(req)
     //     .then(user => user ? res.status(200).json({ status: true, data: user }) : res.status(400).json({ status: false, message: msg.competation.error, data: [] }))
     //     .catch(err => next(res.json({ status: false, message: err })));
