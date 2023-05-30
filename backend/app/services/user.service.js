@@ -7,7 +7,7 @@
 
 const config = require('../config/index');
 const msg = require('../helpers/messages.json');
-const competitionModel = require("../models/competitionModel")
+const { Competition } = require("../helpers/db")
 
 
 module.exports = {
@@ -92,9 +92,9 @@ async function competationData(req) {
                 userId: param.userId,
                 username: param.username,
                 media_Url: param.media_url
-            }
-        }
-        const Item = new competitionModel({ input });
+            },
+        };
+        const Item = new Competition(input);
 
         const data = await Item.save();
         if (data) {

@@ -8,5 +8,6 @@
 module.exports = {
     Competition: require('../models/competition.model'),
     User: require('../models/user.model'),
-    Notification: require('../models/notification.model')
+    Notification: require('../models/notification.model'),
+
 };
