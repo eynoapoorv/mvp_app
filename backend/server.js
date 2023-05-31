@@ -44,6 +44,7 @@ app.use(errorHandler);
 require('./app/cronJob');
 
 // Databse Connection
+require("../backend/app/helpers/db");
 
 
 

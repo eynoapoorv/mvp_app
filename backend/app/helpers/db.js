@@ -17,7 +17,6 @@ module.exports = {
 
 const mongoose = require('mongoose')
 
-
 const { connectionString } = require("../config/index");
 mongoose.connect(connectionString, {
     useNewUrlParser: true,
