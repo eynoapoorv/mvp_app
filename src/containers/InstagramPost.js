@@ -197,9 +197,7 @@ const InstagramPosts = () => {
             const headers = {
                 'Access-Control-Allow-Origin': '*',
             }
-            axios.post(tokenExchangeUrl, requestBody,{
-                headers: headers
-              })
+            axios.post(tokenExchangeUrl, requestBody)
                 .then((response) => {
                     setAccessToken(response.data.access_token);
                     console.log(response.data.access_token);
