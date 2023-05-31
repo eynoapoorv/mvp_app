@@ -16,14 +16,13 @@ module.exports = {
 
 
 const mongoose = require('mongoose')
-const connectionString = require("../config/index")
 
-export const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect(connectionString)
-        console.log(`Connect To Mongoose Database ${conn.connection.host}`)
-    } catch (error) {
-        console.log(`Error in databse connection ${error}`)
-    }
 
-}
+const { connectionString } = require("../config/index");
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then((data) => {
+        console.log(`Mongodb connected with server: ${data.connection.host}`);
+    });
