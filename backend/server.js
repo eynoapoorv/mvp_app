@@ -43,8 +43,7 @@ app.use(errorHandler);
 // Creating cron job
 require('./app/cronJob');
 
-// Databse Connection
-require("../backend/app/helpers/db");
+
 
 
 
