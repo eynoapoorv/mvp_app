@@ -13,7 +13,7 @@ const https = require('https');
 const app = express();
 const errorHandler = require('./app/helpers/error-handler');
 
-
+const connectDB = require("../backend/app/helpers/db")
 
 
 
@@ -42,6 +42,9 @@ app.use(errorHandler);
 
 // Creating cron job
 require('./app/cronJob');
+
+// Databse Connection
+connectDB();
 
 
 // set port, listen for requests
