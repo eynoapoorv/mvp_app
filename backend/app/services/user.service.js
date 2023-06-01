@@ -7,6 +7,8 @@
 
 const config = require('../config/index');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
 mongoose.connect(process.env.CONNECTION_STRING || config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
