@@ -194,7 +194,9 @@ const InstagramPosts = () => {
             requestBody.append('grant_type', 'authorization_code');
             requestBody.append('redirect_uri', redirectURI);
             requestBody.append('code', code);
-
+            const headers = {
+                'Access-Control-Allow-Origin': '*',
+            }
             axios.post(tokenExchangeUrl, requestBody)
                 .then((response) => {
                     setAccessToken(response.data.access_token);
