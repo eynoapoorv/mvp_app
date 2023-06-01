@@ -48,7 +48,7 @@ require('./app/cronJob');
 
 
 // set port, listen for requests
-const PORT = config.dev_port || 8080;
+const PORT = config.dev_port || 8800;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
