@@ -106,15 +106,17 @@ async function getUserData(param) {
 async function competationData(req, res) {
     console.log("competation DATA")
     try {
-        const param = req.body;
 
-        let input = {
-            opponentOne: {
-                userId: param.userId,
-                username: param.username,
-                media_Url: param.media_url
-            },
-        };
+
+        // const param = req.body;
+
+        // let input = {
+        //     opponentOne: {
+        //         userId: param.userId,
+        //         username: param.username,
+        //         media_Url: param.media_url
+        //     },
+        // };
         // const Item = new Competition(input);
 
         // const data = await Item.save();
@@ -126,7 +128,14 @@ async function competationData(req, res) {
         // }
 
         /***********  TRY ANOTHER METHOD   **********/
-        const Item = await new Competition(input).save();
+
+        const { userId, username, media_Url } = req.body;
+
+        const Item = await new Competition({
+            userId,
+            username,
+            media_Url,
+        }).save();
         res.status(201).send({
             success: true,
             message: "Add Successfully",
