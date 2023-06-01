@@ -6,17 +6,7 @@
  */
 
 const config = require('../config/index');
-
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
-
-mongoose.connect(process.env.CONNECTION_STRING || config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.Promise = global.Promise;
-
 const msg = require('../helpers/messages.json');
-const { Competition } = require("../helpers/db")
-
 
 module.exports = {
     joinCompetion,
@@ -34,6 +24,26 @@ module.exports = {
  * @returns null 
  */
 async function joinCompetion(param) {
+    try {
+        const param = req.body;
+
+        let input = {
+            sender: param.userId,
+            message: param.username,
+        };
+        const Item = new Competition(input);
+
+        const data = await Item.save();
+        if (data) {
+            console.log(data);
+            return true;
+        } else {
+            return false;
+        }
+    } catch (err) {
+        console.log('Error', err);
+        return false;
+    }
 }
 
 /************************************************************************************/
