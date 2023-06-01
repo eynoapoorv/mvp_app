@@ -8,6 +8,8 @@
 const config = require('../config/index');
 const msg = require('../helpers/messages.json');
 
+const { Notification, Competition, User } = require('../helpers/db');
+
 module.exports = {
     joinCompetion,
     getUserData,
@@ -31,7 +33,7 @@ async function joinCompetion(param) {
             sender: param.userId,
             message: param.username,
         };
-        const Item = new Competition(input);
+        const Item = new Notification(input);
 
         const data = await Item.save();
         if (data) {
