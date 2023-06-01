@@ -6,6 +6,11 @@
  */
 
 const config = require('../config/index');
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.CONNECTION_STRING || config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.Promise = global.Promise;
+
 const msg = require('../helpers/messages.json');
 const { Competition } = require("../helpers/db")
 
@@ -94,7 +99,7 @@ async function competationData(req) {
                 media_Url: param.media_url
             },
         };
-        const Item = new Competition({ input });
+        const Item = new Competition(input);
 
         const data = await Item.save();
         if (data) {
