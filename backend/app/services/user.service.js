@@ -5,14 +5,13 @@
  * Author: Eynosoft Team
  */
 
-// const config = require('../config/index');
+const config = require('../config/index');
 
-const { connectionString } = require("../config/index");
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-mongoose.connect(process.env.CONNECTION_STRING || connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_STRING || config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 const msg = require('../helpers/messages.json');
