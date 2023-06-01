@@ -106,42 +106,42 @@ async function getUserData(param) {
 async function competationData(req, res) {
     console.log("competation DATA")
     try {
+        const param = req.body;
 
+        let input = {
+            opponentOne: {
+                userId: param.userId,
+                username: param.username,
+                media_Url: param.media_url
+            },
+        };
+        const Item = new Competition(input);
 
-        // const param = req.body;
-
-        // let input = {
-        //     opponentOne: {
-        //         userId: param.userId,
-        //         username: param.username,
-        //         media_Url: param.media_url
-        //     },
-        // };
-        // const Item = new Competition(input);
-
-        // const data = await Item.save();
-        // if (data) {
-        //     console.log(data);
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        const data = await Item.save();
+        if (data) {
+            console.log(data);
+            return true;
+        } else {
+            return false;
+        }
 
         /***********  TRY ANOTHER METHOD   **********/
 
-        const { userId, username, media_Url } = req.body;
+        // const { userId, username, media_Url } = req.body;
 
-        const Item = await new Competition({
-            userId,
-            username,
-            media_Url,
-        }).save();
-        res.status(201).send({
-            success: true,
-            message: "Add Successfully",
-            Item,
-        });
+        // const Item = await new Competition({
+        //     userId,
+        //     username,
+        //     media_Url,
+        // }).save();
+        // res.status(201).send({
+        //     success: true,
+        //     message: "Add Successfully",
+        //     Item,
+        // });
 
+
+        /**********SAME ERROR */
         /******************************** */
 
 
