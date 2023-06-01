@@ -36,6 +36,7 @@ module.exports = router;
  */
 function joinCompetition(req, res, next) {
     console.log(req);
+    return req;
     userService.joinCompetion(req)
         .then(notification => notification ? (notification && notification.isActive === true ? res.json({ status: true, message: msg.user.login.success, data: notification }) : res.status(400).json({ status: false, message: msg.user.login.active })) : res.status(400).json({ status: false, message: req }))
         .catch(err => next(err));
