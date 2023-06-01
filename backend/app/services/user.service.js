@@ -115,24 +115,33 @@ async function competationData(req, res) {
                 media_Url: param.media_url
             },
         };
-        // const Item = new Competition(input);
+        const Item = new Competition(input);
 
-        // const data = await Item.save();
-        // if (data) {
-        //     console.log(data);
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        const data = await Item.save();
+        if (data) {
+            console.log(data);
+            return true;
+        } else {
+            return false;
+        }
 
         /***********  TRY ANOTHER METHOD   **********/
-        const Item = await new Competition(input).save();
-        res.status(201).send({
-            success: true,
-            message: "Add Successfully",
-            Item,
-        });
 
+        // const { userId, username, media_Url } = req.body;
+
+        // const Item = await new Competition({
+        //     userId,
+        //     username,
+        //     media_Url,
+        // }).save();
+        // res.status(201).send({
+        //     success: true,
+        //     message: "Add Successfully",
+        //     Item,
+        // });
+
+
+        /**********SAME ERROR */
         /******************************** */
 
 
