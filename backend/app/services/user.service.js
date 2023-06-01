@@ -112,7 +112,7 @@ async function competationData(req) {
                 media_Url: param.media_url
             },
         };
-        const Item = new Competition(input);
+        const Item = new Competition({ input });
 
         const data = await Item.save();
         if (data) {
