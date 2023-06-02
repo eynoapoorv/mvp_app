@@ -22,7 +22,7 @@ const InstagramPosts = () => {
     const [feeds, setFeedsData] = useState([]);
     const [profileData, setProfileData] = useState('');
 
-    const [media, setMedia] = useState("")
+
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
         //getUserProfileData();
@@ -251,15 +251,15 @@ const InstagramPosts = () => {
     /*****************************************************************************/
 
 
-    // const handleChange = async (event) => {
-    //     var videoUrl = event.target.value;
-    //     setJoinVideoUrl(videoUrl);
-    //     console.log(videoUrl)
+    const handleChange = async (event) => {
+        var videoUrl = event.target.value;
+        setJoinVideoUrl(videoUrl);
+        console.log(videoUrl)
 
-    //     // localStorage.setItem("videoData", videoUrl)
-    //     // console.log("selected video are save in local storage", videoUrl);
+        // localStorage.setItem("videoData", videoUrl)
+        // console.log("selected video are save in local storage", videoUrl);
 
-    // }
+    }
 
     //******************************************** */
 
@@ -273,28 +273,23 @@ const InstagramPosts = () => {
      * @returns(JSON|null)
      */
     const joinCompetition = async () => {
-        try {
 
+        if (joinVideoUrl) {
             var mediaURL = [{
-                'url': media
+                'url': joinVideoUrl,
             }]
-            const res = await axios.post("user/saveCompetitionData", mediaURL,
+            let resp = await axios.post("user/saveCompetitionData", mediaURL,
                 {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json;charset=UTF-8',
                     }
                 });
-            if (!res.ok) {
+            if (!resp.ok) {
                 console.log("Uploading fail")
             } else {
                 console.log("Video Uploading succesfull")
             }
-        } catch (error) {
-            console.log(error)
-        }
-
-        if (joinVideoUrl) {
 
             var video = '<video width="100%" height="auto" src="' + { joinVideoUrl } + '" type="video/mp4" controls playsinline> </video>'
             var message = 'Test has send invite request for this competion .' + video + ' Accept invitaiton for competition' + <button>Invite</button> + '!';
@@ -353,8 +348,8 @@ const InstagramPosts = () => {
                                         type='radio'
                                         id={i}
                                         name='feeds'
-                                        value={media}
-                                        onChange={(e) => setMedia(e.target.value)}
+                                        value={feed.media_url}
+                                        onChange={handleChange}
                                     />
                                 </li>
                             );
