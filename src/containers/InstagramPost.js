@@ -249,15 +249,15 @@ const InstagramPosts = () => {
     /*****************************************************************************/
 
 
-    // const handleChange = async (event) => {
-    //     var videoUrl = event.target.value;
-    //     setJoinVideoUrl(videoUrl);
-    //     console.log(videoUrl)
+    const handleChange = async (event) => {
+        var videoUrl = event.target.value;
+        setJoinVideoUrl(videoUrl);
+        console.log(videoUrl)
 
-    //     // localStorage.setItem("videoData", videoUrl)
-    //     // console.log("selected video are save in local storage", videoUrl);
+        // localStorage.setItem("videoData", videoUrl)
+        // console.log("selected video are save in local storage", videoUrl);
 
-    // }
+    }
 
     //******************************************** */
 
@@ -272,15 +272,7 @@ const InstagramPosts = () => {
      */
     const joinCompetition = async () => {
         try {
-            const res = await axios.post("https://mvpappnode.onrender.com/user/saveCompetitionData",
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ joinVideoUrl }),
-                });
-            console.log(res.data);
+            const res = await axios.post("https://mvpappnode.onrender.com/user/saveCompetitionData", joinVideoUrl)
             if (!res.ok) {
                 console.log("Uploading fail")
             } else {
@@ -289,7 +281,6 @@ const InstagramPosts = () => {
         } catch (error) {
             console.log(error)
         }
-
 
         if (joinVideoUrl) {
             var video = '<video width="100%" height="auto" src="' + { joinVideoUrl } + '" type="video/mp4" controls playsinline> </video>'
@@ -351,7 +342,7 @@ const InstagramPosts = () => {
                                         name='feeds'
                                         value={feed.media_url}
 
-                                        onChange={(e) => setJoinVideoUrl(e.target.value)}
+                                        onChange={handleChange}
                                     />
 
                                 </li>
