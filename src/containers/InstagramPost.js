@@ -310,7 +310,7 @@ const InstagramPosts = () => {
                     <div className="container">
                         <ul>
                             {feeds.map((feed, i) => {
-                                console.log("THIS IS RETURN", feed);
+                                console.log(feed);
                                 //setUsername(feed.username);
                                 return (
 
@@ -322,7 +322,8 @@ const InstagramPosts = () => {
                                                 type='radio'
                                                 id={i}
                                                 name='feeds'
-                                                value={feed.value}
+                                                value={feed.media_url}
+
                                                 onChange={handleChange}
                                             />
                                         </p>
