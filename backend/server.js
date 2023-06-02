@@ -41,7 +41,7 @@ app.use('/user', require('./app/controllers/user.controller'));
 app.use(errorHandler);
 
 // Creating cron job
-require('./app/cronJob');
+// require('./app/cronJob');
 
 
 
