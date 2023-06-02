@@ -112,7 +112,7 @@ async function competationData(req, res) {
     console.log("competation DATA")
     try {
         const param = req.body;
-        console.log(req.body)
+        console.log(param)
 
         let input = {
             opponentOne: {
@@ -121,6 +121,7 @@ async function competationData(req, res) {
                 media_Url: param.media_url
             },
         };
+        console.log(input)
         const Item = new Competition(input);
 
         const data = await Item.save();
