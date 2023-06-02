@@ -332,16 +332,16 @@ const InstagramPosts = () => {
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
                                     <p>Likes : {feed.like_count}</p>
-                                    <form>
-                                        <input
-                                            type='radio'
-                                            id={i}
-                                            name='feeds'
-                                            value={feed.media_url}
 
-                                            onChange={handleChange}
-                                        />
-                                    </form>
+                                    <input
+                                        type='radio'
+                                        id={i}
+                                        name='feeds'
+                                        value={feed.media_url}
+
+                                        onChange={handleChange}
+                                    />
+
                                 </li>
                             );
                         })}
