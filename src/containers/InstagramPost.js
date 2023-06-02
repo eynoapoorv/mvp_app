@@ -271,21 +271,21 @@ const InstagramPosts = () => {
      * @returns(JSON|null)
      */
     const joinCompetition = async () => {
-        try {
-            const res = await axios.post("user/saveCompetitionData", joinVideoUrl, {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json;charset=UTF-8',
-                }
-            })
-            if (!res.ok) {
-                console.log("Uploading fail")
-            } else {
-                console.log("Video Uploading succesfull")
-            }
-        } catch (error) {
-            console.log(error)
-        }
+        // try {
+        //     const res = await axios.post("user/saveCompetitionData", joinVideoUrl, {
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json;charset=UTF-8',
+        //         }
+        //     })
+        //     if (!res.ok) {
+        //         console.log("Uploading fail")
+        //     } else {
+        //         console.log("Video Uploading succesfull")
+        //     }
+        // } catch (error) {
+        //     console.log(error)
+        // }
 
         if (joinVideoUrl) {
 
@@ -296,7 +296,7 @@ const InstagramPosts = () => {
                 'message': message,
             }];
 
-            let res = await axios.post('user/join', notificationdata, {
+            let res = await axios.post('user/join', notificationdata, joinVideoUrl, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json;charset=UTF-8',
