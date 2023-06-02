@@ -249,20 +249,12 @@ const InstagramPosts = () => {
     /*****************************************************************************/
 
 
-    const handleChange = (event) => {
+    const handleChange = async (event) => {
         var videoUrl = event.target.value;
-
         setJoinVideoUrl(videoUrl);
         console.log(videoUrl)
 
-        // localStorage.setItem("videoData", videoUrl)
-        // console.log("selected video are save in local storage", videoUrl);
 
-    }
-
-    //******************************************** */
-
-    const handleSubmit = async () => {
         try {
             const res = await axios.post("https://mvpappnode.onrender.com/user/saveCompetitionData",
                 { joinVideoUrl });
@@ -270,7 +262,14 @@ const InstagramPosts = () => {
         } catch (error) {
             console.log(error)
         }
+        // localStorage.setItem("videoData", videoUrl)
+        // console.log("selected video are save in local storage", videoUrl);
+
     }
+
+    //******************************************** */
+
+
     /*****************************************************************************/
     /*****************************************************************************/
     /**
@@ -333,7 +332,7 @@ const InstagramPosts = () => {
                                 <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
                                     <Feed key={feed.id} feed={feed} />
                                     <p>Likes : {feed.like_count}</p>
-                                    <form onSubmit={handleSubmit}>
+                                    <form>
                                         <input
                                             type='radio'
                                             id={i}
