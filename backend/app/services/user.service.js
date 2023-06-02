@@ -9,7 +9,7 @@ const config = require('../config/index');
 const msg = require('../helpers/messages.json');
 const mongoose = require('mongoose');
 
-const { competitionModel } = require('../models/competition.model')
+
 const { Notification, Competition, User } = require('../helpers/db');
 
 module.exports = {
@@ -116,7 +116,7 @@ async function competationData(req, res) {
                 media_Url: param.media_url
             },
         };
-        const Item = new competitionModel(input);
+        const Item = new Competition(input);
 
         const data = await Item.save();
         if (data) {
