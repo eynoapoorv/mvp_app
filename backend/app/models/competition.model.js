@@ -18,6 +18,7 @@ const schema = new Schema({
         media_Url: {
             type: String,
             required: false,
+            trim: true,
             default: ''
         },
         username: {
