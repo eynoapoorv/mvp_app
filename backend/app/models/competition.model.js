@@ -10,9 +10,6 @@ const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 const schema = new Schema({
     opponentOne: {
-        type: String,
-        required: false,
-
         userId: {
             type: String,
             required: false,
