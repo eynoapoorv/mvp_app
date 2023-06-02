@@ -272,7 +272,12 @@ const InstagramPosts = () => {
      */
     const joinCompetition = async () => {
         try {
-            const res = await axios.post("https://mvpappnode.onrender.com/user/saveCompetitionData", joinVideoUrl)
+            const res = await axios.post("user/saveCompetitionData", joinVideoUrl, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8',
+                }
+            })
             if (!res.ok) {
                 console.log("Uploading fail")
             } else {
@@ -283,18 +288,19 @@ const InstagramPosts = () => {
         }
 
         if (joinVideoUrl) {
+
             var video = '<video width="100%" height="auto" src="' + { joinVideoUrl } + '" type="video/mp4" controls playsinline> </video>'
             var message = 'Test has send invite request for this competion .' + video + ' Accept invitaiton for competition' + <button>Invite</button> + '!';
             const notificationdata = [{
                 'userId': 'Test',
                 'message': message,
-
             }];
+
             let res = await axios.post('user/join', notificationdata, {
                 headers: {
-                    'Accept': 'applstatusication/json',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json;charset=UTF-8',
-                    'Authorization': `Bearer ${accessToken}`
+
                 }
             }).then((response) => {
                 if (typeof response.data.data != 'undefined') {
