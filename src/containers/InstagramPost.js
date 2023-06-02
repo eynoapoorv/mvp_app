@@ -249,7 +249,6 @@ const InstagramPosts = () => {
     /*****************************************************************************/
     const handleChange = (event) => {
         var videoUrl = event.target.value;
-
         console.log(videoUrl)
         // const videoUrl = URL.createObjectURL(file);
         localStorage.setItem("videoData", videoUrl)
@@ -323,7 +322,7 @@ const InstagramPosts = () => {
                                                 type='radio'
                                                 id={i}
                                                 name='feeds'
-                                                value={feed.media_url}
+                                                value={feeds}
                                                 onChange={handleChange}
                                             />
                                         </p>
