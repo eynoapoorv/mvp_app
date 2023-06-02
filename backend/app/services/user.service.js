@@ -112,6 +112,7 @@ async function competationData(req, res) {
     console.log("competation DATA")
     try {
         const param = req.body;
+        console.log(req.body)
 
         let input = {
             opponentOne: {
