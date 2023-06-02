@@ -21,6 +21,8 @@ const InstagramPosts = () => {
     const [username, setUsername] = useState('');
     const [feeds, setFeedsData] = useState([]);
     const [profileData, setProfileData] = useState('');
+
+    const [media, setMedia] = useState("")
     //use useRef to store the latest value of the prop without firing the effect
     useEffect(() => {
         //getUserProfileData();
@@ -249,15 +251,15 @@ const InstagramPosts = () => {
     /*****************************************************************************/
 
 
-    const handleChange = async (event) => {
-        var videoUrl = event.target.value;
-        setJoinVideoUrl(videoUrl);
-        console.log(videoUrl)
+    // const handleChange = async (event) => {
+    //     var videoUrl = event.target.value;
+    //     setJoinVideoUrl(videoUrl);
+    //     console.log(videoUrl)
 
-        // localStorage.setItem("videoData", videoUrl)
-        // console.log("selected video are save in local storage", videoUrl);
+    //     // localStorage.setItem("videoData", videoUrl)
+    //     // console.log("selected video are save in local storage", videoUrl);
 
-    }
+    // }
 
     //******************************************** */
 
@@ -271,21 +273,26 @@ const InstagramPosts = () => {
      * @returns(JSON|null)
      */
     const joinCompetition = async () => {
-        // try {
-        //     const res = await axios.post("user/saveCompetitionData", joinVideoUrl, {
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json;charset=UTF-8',
-        //         }
-        //     })
-        //     if (!res.ok) {
-        //         console.log("Uploading fail")
-        //     } else {
-        //         console.log("Video Uploading succesfull")
-        //     }
-        // } catch (error) {
-        //     console.log(error)
-        // }
+        try {
+
+            var mediaURL = [{
+                'url': media
+            }]
+            const res = await axios.post("user/saveCompetitionData", mediaURL,
+                {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json;charset=UTF-8',
+                    }
+                });
+            if (!res.ok) {
+                console.log("Uploading fail")
+            } else {
+                console.log("Video Uploading succesfull")
+            }
+        } catch (error) {
+            console.log(error)
+        }
 
         if (joinVideoUrl) {
 
@@ -296,7 +303,7 @@ const InstagramPosts = () => {
                 'message': message,
             }];
 
-            let res = await axios.post('user/join', notificationdata, joinVideoUrl, {
+            let res = await axios.post('user/join', notificationdata, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json;charset=UTF-8',
@@ -346,11 +353,9 @@ const InstagramPosts = () => {
                                         type='radio'
                                         id={i}
                                         name='feeds'
-                                        value={feed.media_url}
-
-                                        onChange={handleChange}
+                                        value={media}
+                                        onChange={(e) => setMedia(e.target.value)}
                                     />
-
                                 </li>
                             );
                         })}
