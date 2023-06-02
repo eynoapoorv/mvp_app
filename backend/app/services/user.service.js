@@ -116,7 +116,7 @@ async function competationData(req, res) {
 
         let input = {
             opponentOne: {
-                userId: param.userId,
+                userId: param.id,
                 username: param.username,
                 media_Url: param.media_url
             },
