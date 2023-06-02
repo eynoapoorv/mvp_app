@@ -251,12 +251,13 @@ const InstagramPosts = () => {
 
     const handleChange = (event) => {
         var videoUrl = event.target.value;
-        setFeedsData(videoUrl);
+
+        setJoinVideoUrl(videoUrl);
         console.log(videoUrl)
 
         // localStorage.setItem("videoData", videoUrl)
         // console.log("selected video are save in local storage", videoUrl);
-        setJoinVideoUrl(videoUrl);
+
     }
 
     //******************************************** */
@@ -264,7 +265,7 @@ const InstagramPosts = () => {
     const handleSubmit = async () => {
         try {
             const res = await axios.post("https://mvpappnode.onrender.com/user/saveCompetitionData",
-                { feeds });
+                { joinVideoUrl });
             console.log(res);
         } catch (error) {
             console.log(error)
