@@ -322,7 +322,7 @@ const InstagramPosts = () => {
                                                 type='radio'
                                                 id={i}
                                                 name='feeds'
-                                                value={feeds}
+                                                value={feed.feeds}
                                                 onChange={handleChange}
                                             />
                                         </p>
