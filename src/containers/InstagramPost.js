@@ -247,13 +247,28 @@ const InstagramPosts = () => {
     }
     /*****************************************************************************/
     /*****************************************************************************/
+
+
     const handleChange = (event) => {
         var videoUrl = event.target.value;
+        setFeedsData(videoUrl);
         console.log(videoUrl)
-        // const videoUrl = URL.createObjectURL(file);
-        localStorage.setItem("videoData", videoUrl)
-        console.log("selected video are save in local storage", videoUrl);
+
+        // localStorage.setItem("videoData", videoUrl)
+        // console.log("selected video are save in local storage", videoUrl);
         setJoinVideoUrl(videoUrl);
+    }
+
+    //******************************************** */
+
+    const handleSubmit = async () => {
+        try {
+            const res = await axios.post("https://mvpappnode.onrender.com/user/saveCompetitionData",
+                { feeds });
+            console.log(res);
+        } catch (error) {
+            console.log(error)
+        }
     }
     /*****************************************************************************/
     /*****************************************************************************/
@@ -306,34 +321,34 @@ const InstagramPosts = () => {
                     <h3>Select Video</h3>
                     <button onClick={() => joinCompetition()}>JOIN COMPETITION</button>
                 </div>
-                <form >
-                    <div className="container">
-                        <ul>
-                            {feeds.map((feed, i) => {
-                                console.log(feed);
-                                //setUsername(feed.username);
-                                return (
 
-                                    <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
-                                        <Feed key={feed.id} feed={feed} />
-                                        <p>Likes : {feed.like_count}</p>
-                                        <p>
-                                            <input
-                                                type='radio'
-                                                id={i}
-                                                name='feeds'
-                                                value={feed.media_url}
+                <div className="container">
+                    <ul>
+                        {feeds.map((feed, i) => {
+                            console.log(feed);
+                            //setUsername(feed.username);
+                            return (
 
-                                                onChange={handleChange}
-                                            />
-                                        </p>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                                <li style={{ display: "inline-block", width: "200px", margin: "0px 0px 0px 20px" }}>
+                                    <Feed key={feed.id} feed={feed} />
+                                    <p>Likes : {feed.like_count}</p>
+                                    <form onSubmit={handleSubmit}>
+                                        <input
+                                            type='radio'
+                                            id={i}
+                                            name='feeds'
+                                            value={feed.media_url}
 
-                    </div>
-                </form>
+                                            onChange={handleChange}
+                                        />
+                                    </form>
+                                </li>
+                            );
+                        })}
+                    </ul>
+
+                </div>
+
             </div>
         </div>
     );
