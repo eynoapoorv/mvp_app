@@ -280,6 +280,7 @@ const InstagramPosts = () => {
                     },
                     body: JSON.stringify({ joinVideoUrl }),
                 });
+            console.log(res.data);
             if (!res.ok) {
                 console.log("Uploading fail")
             } else {
