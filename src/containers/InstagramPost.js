@@ -249,15 +249,15 @@ const InstagramPosts = () => {
     /*****************************************************************************/
 
 
-    const handleChange = async (event) => {
-        var videoUrl = event.target.value;
-        setJoinVideoUrl(videoUrl);
-        console.log(videoUrl)
+    // const handleChange = async (event) => {
+    //     var videoUrl = event.target.value;
+    //     setJoinVideoUrl(videoUrl);
+    //     console.log(videoUrl)
 
-        // localStorage.setItem("videoData", videoUrl)
-        // console.log("selected video are save in local storage", videoUrl);
+    //     // localStorage.setItem("videoData", videoUrl)
+    //     // console.log("selected video are save in local storage", videoUrl);
 
-    }
+    // }
 
     //******************************************** */
 
@@ -288,6 +288,7 @@ const InstagramPosts = () => {
         } catch (error) {
             console.log(error)
         }
+
 
         if (joinVideoUrl) {
             var video = '<video width="100%" height="auto" src="' + { joinVideoUrl } + '" type="video/mp4" controls playsinline> </video>'
@@ -349,7 +350,7 @@ const InstagramPosts = () => {
                                         name='feeds'
                                         value={feed.media_url}
 
-                                        onChange={handleChange}
+                                        onChange={(e) => setJoinVideoUrl(e.target.value)}
                                     />
 
                                 </li>
