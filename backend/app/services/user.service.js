@@ -118,16 +118,16 @@ async function competationData(req, res) {
             firstOpponent: param.uri,
             secondOpponent: param.uri,
         };
-        console.log(input)
-        const Item = new Competition(input);
+        return input;
+        // const Item = new Competition(input);
 
-        const data = await Item.save();
-        if (data) {
-            console.log(data);
-            return true;
-        } else {
-            return false;
-        }
+        // const data = await Item.save();
+        // if (data) {
+        //     console.log(data);
+        //     return true;
+        // } else {
+        //     return false;
+        // }
 
         /***********  TRY ANOTHER METHOD   **********/
 
