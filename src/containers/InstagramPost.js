@@ -279,7 +279,9 @@ const InstagramPosts = () => {
             var mediaURL = encodeURI(uri);
 
             var media_URL = [{
-                'url': mediaURL,
+                "user_id": '6603303249689131',
+                "username": 'user_first1234',
+                'url': 'https://scontent.cdninstagram.com/o1/v/t16/f1/m82/2A41FE254C0CEC1D541E5A441E23E88E_video_dashinit.mp4?efg=eyJ2ZW5jb2RlX3RhZyI6InZ0c192b2RfdXJsZ2VuLjcyMC5jbGlwcyJ9&_nc_ht=scontent.cdninstagram.com&_nc_cat=110&vs=5927701337357014_2404866775&_nc_vs=HBksFQIYT2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfcHJvZC8yQTQxRkUyNTRDMENFQzFENTQxRTVBNDQxRTIzRTg4RV92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVABgkR1BqenpSUzh4Y2NCM3dRR0FJVW5WVzV6TVdrSmJxX0VBQUFGFQICyAEAKAAYABsBiAd1c2Vfb2lsATEVAAAmzOTxstbp70AVAigCQzMsF0BJ6dsi0OVgGBJkYXNoX2Jhc2VsaW5lXzFfdjERAHUAAA%3D%3D&ccb=9-4&oh=00_AfBkK8JWKJBz4OecYUyxlnrTiTg6RNJjj_87tLEFlbt9DA&oe=647CDEF9&_nc_sid=c07a80&_nc_rid=5375df0cda',
             }]
 
             let resp = await axios.post("user/saveCompetitionData", media_URL,
