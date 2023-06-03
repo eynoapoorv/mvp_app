@@ -111,28 +111,14 @@ async function getUserData(param) {
 async function competationData(req, res) {
     console.log("competation DATA")
     try {
-        const { firstOpponent, secondOpponent } = req.body
+        const param = req.body;
+        console.log(param)
 
-        //save
-
-        const item = await new Competition({
-            firstOpponent,
-            secondOpponent
-        }).save();
-        res.status(201).send({
-            success: true,
-            message: "add video",
-            item,
-        });
-
-        // const param = req.body;
-        // console.log(param)
-
-        // let input = {
-        //     firstOpponent: param.uri,
-        //     secondOpponent: param.uri,
-        // // };
-        // return input;
+        let input = {
+            firstOpponent: param.uri,
+            secondOpponent: param.uri,
+        };
+        return input;
 
         // const Item = new Competition(input);
 
