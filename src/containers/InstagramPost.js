@@ -320,8 +320,8 @@ const InstagramPosts = () => {
             }).catch(error => {
                 console.log(error);
             });
-            navigate('/compitation')
-            alert("GO TO COMPETATION PAGE")
+            // navigate('/compitation')
+            // alert("GO TO COMPETATION PAGE")
         } else {
             alert('Please choose video')
         }
