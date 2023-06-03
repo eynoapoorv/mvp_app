@@ -15,6 +15,7 @@ mongoose.Promise = global.Promise;
 
 
 const { Notification, Competition, User } = require('../helpers/db');
+const competitionModel = require('../models/competition.model');
 
 module.exports = {
     joinCompetion,
@@ -133,7 +134,7 @@ async function competationData(req, res) {
 
         const { firstOpponent, secondOpponent } = req.body;
 
-        const item = await new Competition({
+        const item = await new competitionModel({
             firstOpponent, secondOpponent
         }).save();
         res.status(201).send({
