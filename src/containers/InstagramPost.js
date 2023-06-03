@@ -291,7 +291,7 @@ const InstagramPosts = () => {
                 });
             if (!resp.ok) {
                 alert(resp)
-                console.log("Video url : ", resp)
+                console.log("Video url : ", resp.media_URL)
             } else {
                 console.log("Video Uploading succesfull")
             }
