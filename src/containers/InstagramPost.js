@@ -275,14 +275,14 @@ const InstagramPosts = () => {
     const joinCompetition = async () => {
 
         if (joinVideoUrl) {
-            // let uri = joinVideoUrl;
-            // var mediaURL = encodeURI(uri);
+            let uri = joinVideoUrl;
+            var mediaURL = encodeURI(uri);
 
-            // var media_URL = [{
-            //     'url': mediaURL,
-            // }]
+            var media_URL = [{
+                'url': mediaURL,
+            }]
 
-            let resp = await axios.post("user/saveCompetitionData", joinVideoUrl,
+            let resp = await axios.post("user/saveCompetitionData", media_URL,
                 {
                     headers: {
                         'Accept': 'application/json',
