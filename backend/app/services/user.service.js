@@ -111,47 +111,42 @@ async function getUserData(param) {
 async function competationData(req, res) {
     console.log("competation DATA")
     try {
-        const param = req.body;
-        console.log(param)
+        // const param = req.body;
+        // console.log(param)
 
-        let input = {
-            firstOpponent: param.uri,
-            secondOpponent: param.uri,
-        };
-        return input;
+        // let input = {
+        //     firstOpponent: param.uri,
+        //     secondOpponent: param.uri,
+        // };
+        // return input;
 
-        // const Item = new Competition(input);
+        // // const Item = new Competition(input);
 
-        // const data = await Item.save(); 
-        // if (data) {
-        //     console.log(data);
-        //     return true;
-        // } else {
-        //     return false;
-        // }
-
-        /***********  TRY ANOTHER METHOD   **********/
-
-        // const { userId, username, media_Url } = req.body;
-
-        // const Item = await new Competition({
-        //     userId,
-        //     username,
-        //     media_Url,
-        // }).save();
-        // res.status(201).send({
-        //     success: true,
-        //     message: "Add Successfully",
-        //     Item,
-        // });
+        // // const data = await Item.save(); 
+        // // if (data) {
+        // //     console.log(data);
+        // //     return true;
+        // // } else {
+        // //     return false;
+        // // }
 
 
-        /**********SAME ERROR */
-        /******************************** */
+        const { firstOpponent, secondOpponent } = req.body;
 
-
-    } catch (err) {
-        console.log('Error', err);
-        return false;
+        const item = await new Competition({
+            firstOpponent, secondOpponent
+        }).save();
+        res.status(201).send({
+            success: true,
+            message: "Add Successfully",
+            item,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: "Error in Adding",
+            error,
+        });
     }
 }
