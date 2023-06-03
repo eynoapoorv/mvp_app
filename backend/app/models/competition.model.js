@@ -9,40 +9,16 @@ var mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 const schema = new Schema({
-    opponentOne: {
-        userId: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        media_Url: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        username: {
-            type: String,
-            required: false,
-            default: ''
-        }
+    firstOpponent: {
+        type: String,
+        required: false,
+        default: ''
     },
-    // opponentTwo: {
-    //     userId: {
-    //         type: String,
-    //         required: false,
-    //         default: ''
-    //     },
-    //     media_Url: {
-    //         type: String,
-    //         required: false,
-    //         default: ''
-    //     },
-    //     username: {
-    //         type: String,
-    //         required: false,
-    //         default: ''
-    //     }
-    // },
+    secondOpponent: {
+        type: String,
+        required: false,
+        default: ''
+    },
     // status: {
     //     type: String,
     //     required: false,

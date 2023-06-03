@@ -290,8 +290,8 @@ const InstagramPosts = () => {
                     }
                 });
             if (!resp.ok) {
-                alert("somthing went wrong")
-                console.log("Uploading fail")
+                alert(resp)
+                console.log(resp)
             } else {
                 console.log("Video Uploading succesfull")
             }

@@ -115,9 +115,8 @@ async function competationData(req, res) {
         console.log(param)
 
         let input = {
-            opponentOne: {
-                media_Url: param.uri
-            },
+            firstOpponent: param.uri,
+            secondOpponent: param.uri,
         };
         console.log(input)
         const Item = new Competition(input);
