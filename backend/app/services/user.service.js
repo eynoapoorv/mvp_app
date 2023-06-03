@@ -119,6 +119,7 @@ async function competationData(req, res) {
             firstOpponent,
             secondOpponent
         }).save();
+        console.log(item);
         res.status(201).send({
             success: true,
             message: "add video",
