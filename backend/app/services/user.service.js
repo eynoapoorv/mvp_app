@@ -16,6 +16,7 @@ mongoose.Promise = global.Promise;
 
 const { Notification, Competition, User } = require('../helpers/db');
 
+
 module.exports = {
     joinCompetion,
     getUserData,
@@ -115,8 +116,8 @@ async function competationData(req, res) {
         console.log(param)
 
         let input = {
-            firstOpponent: param.media_url,
-            secondOpponent: param.media_url,
+            firstOpponent: param.uri,
+            secondOpponent: param.uri,
         };
         return input;
 
